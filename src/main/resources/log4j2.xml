@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Log4j 2.x 配置文件 -->
+<!-- monitorInterval: log4j 2 定期检查和应用配置文件的时间间隔 -->
+<!-- 单位: s(秒),如果更改配置文件,不用重启系统 -->
+<!-- status: log4j内部事件记录等级,只对log4j本身有效 -->
+<!-- schema: Schema约束文件 -->
+<Configuration monitorInterval="30">
+    <Properties>
+        <Property name="log-path">../logs</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- 输出到控制台 -->
+        <Console name="CONSOLE" target="SYSTEM_OUT" follow="true">
+            <!-- 需要记录的级别 -->
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p %c(%L) - %m%n"/>
+        </Console>
+
+        <!-- info日志 按天分 -->
+        <RollingFile name="LOG_INFO_FILE" fileName="${log-path}/info.log"
+                     filePattern="${log-path}/%d{yyyy-MM-dd}-info.log">
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p %c(%L) - %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+
+        <!-- error日志 按天分 -->
+        <RollingFile name="LOG_ERROR_FILE" fileName="${log-path}/error.log"
+                     filePattern="${log-path}/%d{yyyy-MM-dd}-error.log">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p %c(%L) - %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <!-- 配置LoggerConfig -->
+    <!-- 只有定义了logger并引入的appender appender才会生效-->
+    <Loggers>
+        <!-- 全局配置 -->
+        <Root level="all">
+            <!-- 输出到控制台 -->
+            <appender-ref ref="CONSOLE"/>
+            <!-- 输出到日志文件 -->
+            <appender-ref ref="LOG_INFO_FILE"/>
+            <appender-ref ref="LOG_ERROR_FILE"/>
+        </Root>
+
+        <!-- 为某些包/类配置Log级别，这些logger继承了root logger -->
+        <!--<Logger name="com.circle" level="TRACE"/>-->
+        <logger name="org.springframework" level="INFO"/>
+    </Loggers>
+</Configuration>
