@@ -4,7 +4,7 @@
 
 @author 斉 鵬（さい ほう）
 
-三層構造Java Webアプリケーション。
+シンプルな三層構造Java Webアプリケーション。
 
 開発環境：Java11、MySQL8、Tomcat9、IntelliJ IDEA 2021など。
 
