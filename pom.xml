@@ -20,7 +20,7 @@
         <!-- 版本锁定 -->
         <junit.version>4.12</junit.version>
         <aspectjweaver.version>1.9.6</aspectjweaver.version>
-        <spring.version>5.2.12.RELEASE</spring.version>
+        <spring.version>5.3.3</spring.version>
         <servlet.version>3.1.0</servlet.version>
         <jsp.version>2.3.1</jsp.version>
         <jackson.version>2.12.1</jackson.version>
