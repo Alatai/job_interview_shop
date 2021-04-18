@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
+ * 商品分類
+ *
  * @author saihou
  * @date 2021/04/18 15:41
  */
@@ -41,7 +43,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public int deleteById(Integer id) {
-        return categoryMapper.deleteById(id);
+    public int delete(Integer id) {
+        return categoryMapper.delete(id);
     }
 }

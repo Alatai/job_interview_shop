@@ -47,7 +47,7 @@ public class CategoryController {
 
     @RequestMapping("/delete")
     public String delete(Integer id) {
-        categoryService.deleteById(id);
+        categoryService.delete(id);
 
         return "redirect:/admin/category/list";
     }

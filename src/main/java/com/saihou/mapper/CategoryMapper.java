@@ -22,6 +22,6 @@ public interface CategoryMapper {
 
     int update(Category category);
 
-    int deleteById(Integer id);
+    int delete(Integer id);
 
 }
