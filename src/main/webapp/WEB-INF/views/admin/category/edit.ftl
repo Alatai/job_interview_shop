@@ -1,5 +1,5 @@
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
-    <form action="update" method="post" enctype="multipart/form-data">
+    <form id="editForm" action="add" method="post" enctype="multipart/form-data">
         <input id="id" name="id" type="hidden">
         <div class="modal-dialog">
             <div class="modal-content">

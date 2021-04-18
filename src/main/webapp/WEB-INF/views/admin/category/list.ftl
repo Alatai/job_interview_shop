@@ -47,6 +47,5 @@
 
 <#include "../../common/admin/pagenav.ftl">
 <#include "../../admin/category/edit.ftl">
-<#include "../../admin/category/add.ftl">
 <#include "../../admin/category/delete.ftl">
 <#include "../../common/admin/footer.ftl">

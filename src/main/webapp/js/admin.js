@@ -20,8 +20,8 @@ function openEditModal(id) {
         $('#id').val(categoryId);
         $('#name').val(categoryName);
 
-        $('#editModal').modal();
-    } else {
-        $('#addModal').modal();
+        $('#editForm').attr('action', 'update');
     }
+
+    $('#editModal').modal();
 }
