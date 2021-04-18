@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!-- 引入配置文件 -->
-    <properties resource="properties/jdbc.properties"/>
+    <properties resource="jdbc.properties"/>
     <!-- 数据库驱动-->
     <classPathEntry location="/Users/qipeng/WorkSpace/MavenRepository/mysql/mysql-connector-java/8.0.22"/>
     <context id="DB2Tables" targetRuntime="MyBatis3">
@@ -34,7 +34,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-        <table tableName="user" domainObjectName="User" enableCountByExample="false"
+        <table tableName="Category" domainObjectName="Category" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
     </context>

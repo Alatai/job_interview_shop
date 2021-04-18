@@ -36,6 +36,12 @@
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描mapper文件 -->
         <property name="mapperLocations" value="classpath:com/saihou/mapper/*.xml"/>
+        <!-- 配置PageHelper -->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor"/>
+            </array>
+        </property>
     </bean>
 
     <!-- 配置接口所在的包 -->
