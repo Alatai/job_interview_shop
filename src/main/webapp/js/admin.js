@@ -18,10 +18,9 @@ function openCategoryDeleteModal(id) {
 
 function openCategoryEditModal(id) {
     if (id != null) {
-        let categoryId = $('#categoryId' + id).val()
         let categoryName = $('#categoryName' + id).val()
 
-        $('#id').val(categoryId);
+        $('#id').val(id);
         $('#name').val(categoryName);
 
         $('#editForm').attr('action', 'update');
@@ -41,11 +40,10 @@ function openPropertyDeleteModal(id) {
 
 function openPropertyEditModal(id) {
     if (id != null) {
-        let propertyId = $('#propertyId' + id).val()
         let propertyName = $('#propertyName' + id).val()
         let categoryId = $('#categoryId' + id).val()
 
-        $('#id').val(propertyId);
+        $('#id').val(id);
         $('#name').val(propertyName);
         $('#cid').val(categoryId);
 
@@ -56,3 +54,35 @@ function openPropertyEditModal(id) {
 }
 
 /* property end */
+
+/* product begin */
+function openProductDeleteModal(id) {
+    let url = "http://localhost:8080/jishop/admin/product/delete?id=" + id;
+    $('#deleteUrl').val(url);
+    $('#deleteProduct').modal();
+}
+
+function openProductEditModal(id) {
+    if (id != null) {
+        let productName = $('#productName' + id).val()
+        let productSubtitle = $('#productSubtitle' + id).val()
+        let productOriginalPrice = $('#productOriginalPrice' + id).val()
+        let productPromotePrice = $('#productPromotePrice' + id).val()
+        let productStock = $('#productStock' + id).val()
+        let categoryId = $('#categoryId' + id).val()
+
+        $('#id').val(id);
+        $('#name').val(productName);
+        $('#subtitle').val(productSubtitle);
+        $('#originalPrice').val(productOriginalPrice);
+        $('#promotePrice').val(productPromotePrice);
+        $('#stock').val(productStock);
+        $('#cid').val(categoryId);
+
+        $('#editForm').attr('action', 'update');
+    }
+
+    $('#editModal').modal();
+}
+
+/* product end */

@@ -1,6 +1,7 @@
 package com.saihou.service;
 
 import com.saihou.entity.Category;
+import com.saihou.entity.Product;
 import com.saihou.entity.Property;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,9 +27,15 @@ public class CategoryServiceTest {
         List<Category> categories = categoryService.findAll();
         for (Category category : categories) {
             System.out.println(category);
+
             List<Property> properties = category.getProperties();
             for (Property property : properties) {
                 System.out.println(property);
+            }
+
+            List<Product> products = category.getProducts();
+            for (Product product : products) {
+                System.out.println(product);
             }
         }
     }

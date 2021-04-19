@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saihou.mapper.ProductMapper">
+
+    <resultMap id="BaseResultMap" type="com.saihou.entity.Product">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="subtitle" property="subtitle"/>
+        <result column="originalPrice" property="originalPrice"/>
+        <result column="promotePrice" property="promotePrice"/>
+        <result column="stock" property="stock"/>
+        <result column="cid" property="cid"/>
+        <result column="createdDate" property="createdDate"/>
+        <!-- Category -->
+        <association property="category" column="cid" javaType="com.saihou.entity.Category" select="com.saihou.mapper.CategoryMapper.findById">
+        </association>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        , name, subtitle, originalPrice, promotePrice, stock, cid, createdDate
+    </sql>
+
+    <!-- findAll -->
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from product
+    </select>
+
+    <!-- findById -->
+    <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from product
+        where id = #{id}
+    </select>
+
+    <!-- findByCid -->
+    <select id="findByCid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from product
+        where cid = #{cid}
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterType="com.saihou.entity.Product">
+        insert into product (id, name, subtitle,
+                             originalPrice, promotePrice, stock,
+                             cid, createdDate)
+        values (#{id}, #{name}, #{subtitle},
+                #{originalPrice}, #{promotePrice}, #{stock},
+                #{cid}, #{createdDate})
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterType="com.saihou.entity.Product">
+        update product
+        set name          = #{name},
+            subtitle      = #{subtitle},
+            originalPrice = #{originalPrice},
+            promotePrice  = #{promotePrice},
+            stock         = #{stock},
+            cid           = #{cid},
+            createdDate    = #{createdDate}
+        where id = #{id}
+    </update>
+
+    <!-- delete -->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete
+        from product
+        where id = #{id}
+    </delete>
+
+</mapper>

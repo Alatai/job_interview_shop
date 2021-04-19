@@ -4,11 +4,14 @@
 <div class="container">
     <div class="bread-control">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">サイト管理</a></li>
-                <li class="breadcrumb-item"><a href="list?cid=${category.id}">${category.name}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">属性</li>
-            </ol>
+            <div class="row">
+                <ol class="breadcrumb col-11">
+                    <li class="breadcrumb-item"><a href="#">すべての分類</a></li>
+                    <li class="breadcrumb-item"><a href="list?cid=${category.id}">${category.name}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">属性</li>
+                </ol>
+                <button type="button" class="btn btn-primary add-button" onclick="openPropertyEditModal(null)">追加</button>
+            </div>
         </nav>
     </div>
 
@@ -30,7 +33,6 @@
                     <td>
                         <a href="#" onclick="openPropertyEditModal(${property.id})">
                             <input id="propertyName${property.id}" value="${property.name}" type="hidden">
-                            <input id="propertyId${property.id}" value="${property.id}" type="hidden">
                             <input id="categoryId${property.id}" value="${property.cid}" type="hidden">
                             <i class="fas fa-edit" data-toggle="modal" data-target="#editCotegory"></i>
                         </a>
@@ -46,10 +48,6 @@
             </tbody>
         </table>
     </div>
-</div>
-
-<div class="container">
-    <button type="button" class="btn btn-primary" data-toggle="modal" onclick="openPropertyEditModal(null)">追加</button>
 </div>
 
 

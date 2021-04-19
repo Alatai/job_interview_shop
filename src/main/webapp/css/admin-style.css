@@ -10,3 +10,9 @@
     width: 500px;
     margin: 0 auto;
 }
+
+.add-button {
+    height: 38px;
+    margin-top: 5px;
+    margin-left: 10px;
+}

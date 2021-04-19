@@ -5,10 +5,14 @@
 <div class="container">
     <div class="bread-control">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">サイト管理</a></li>
-                <li class="breadcrumb-item active" aria-current="page">商品分類</li>
-            </ol>
+            <div class="row">
+                <ol class="breadcrumb col-11">
+                    <li class="breadcrumb-item"><a href="#">サイト管理</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">商品分類</li>
+                </ol>
+                <button type="button" class="btn btn-primary add-button" onclick="openCategoryEditModal(null)">追加
+                </button>
+            </div>
         </nav>
     </div>
 
@@ -30,11 +34,12 @@
                     <td>${category.id}</td>
                     <td>${category.name}</td>
                     <td><a href="/jishop/admin/property/list?cid=${category.id}"><i class="fas fa-tasks"></i></a></td>
-                    <td><a href="#"><i class="fas fa-shopping-cart"></i></a></td>
                     <td>
-                        <a href="#" onclick="openEditModal(${category.id})">
+                        <a href="/jishop/admin/product/list?cid=${category.id}"><i class="fas fa-shopping-cart"></i></a>
+                    </td>
+                    <td>
+                        <a href="#" onclick="openCategoryEditModal(${category.id})">
                             <input id="categoryName${category.id}" value="${category.name}" type="hidden">
-                            <input id="categoryId${category.id}" value="${category.id}" type="hidden">
                             <i class="fas fa-edit" data-toggle="modal" data-target="#editCotegory"></i>
                         </a>
                     </td>
@@ -49,10 +54,6 @@
             </tbody>
         </table>
     </div>
-</div>
-
-<div class="container">
-    <button type="button" class="btn btn-primary" data-toggle="modal" onclick="openCategoryEditModal(null)">追加</button>
 </div>
 
 

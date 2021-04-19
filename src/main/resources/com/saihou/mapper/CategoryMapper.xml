@@ -8,6 +8,9 @@
         <!-- Property -->
         <collection property="properties" column="id" ofType="com.saihou.entity.Property" select="com.saihou.mapper.PropertyMapper.findByCid">
         </collection>
+        <!-- Product -->
+        <collection property="products" column="id" ofType="com.saihou.entity.Product" select="com.saihou.mapper.ProductMapper.findByCid">
+        </collection>
     </resultMap>
 
     <sql id="Base_Column_List">

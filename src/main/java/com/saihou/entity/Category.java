@@ -20,6 +20,8 @@ public class Category implements Serializable {
 
     private List<Property> properties;
 
+    private List<Product> products;
+
     public Integer getId() {
         return id;
     }
@@ -50,6 +52,14 @@ public class Category implements Serializable {
 
     public void setProperties(List<Property> properties) {
         this.properties = properties;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     @Override
