@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.saihou.mapper.CategoryMapper">
+
     <resultMap id="BaseResultMap" type="com.saihou.entity.Category">
-        <id column="id" jdbcType="INTEGER" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <!-- Property -->
+        <collection property="properties" column="id" ofType="com.saihou.entity.Property" select="com.saihou.mapper.PropertyMapper.findByCid">
+        </collection>
     </resultMap>
+
     <sql id="Base_Column_List">
-        id
-        , name, imagePath
+        id, name, imagePath
     </sql>
 
     <!-- findAll -->

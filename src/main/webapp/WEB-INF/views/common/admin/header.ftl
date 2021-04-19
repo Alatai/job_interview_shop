@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../../css/all.min.css" type="text/css">
     <!-- custom css -->
     <link rel="stylesheet" href="../../css/admin-style.css" type="text/css">
+    <!-- fix favicon -->
+    <link rel="shortcut icon" href="#">
     <!-- bootstrap js -->
     <script type="text/javascript" src="../../js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="../../js/bootstrap.min.js"></script>

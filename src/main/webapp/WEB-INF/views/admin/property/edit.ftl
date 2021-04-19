@@ -1,17 +1,18 @@
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
     <form id="editForm" action="add" method="post" enctype="multipart/form-data">
         <input id="id" name="id" type="hidden">
+        <input id="cid" name="cid" type="hidden" value="${category.id}">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editTitle">商品分類</h5>
+                    <h5 class="modal-title" id="editTitle">属性</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name">分類名称</label>
+                        <label for="name">属性名称</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="名称">
                     </div>
                 </div>

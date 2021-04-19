@@ -1,6 +1,7 @@
 package com.saihou.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -16,6 +17,8 @@ public class Category implements Serializable {
     private String name;
 
     private String imagePath;
+
+    private List<Property> properties;
 
     public Integer getId() {
         return id;
@@ -39,6 +42,14 @@ public class Category implements Serializable {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public List<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
     }
 
     @Override

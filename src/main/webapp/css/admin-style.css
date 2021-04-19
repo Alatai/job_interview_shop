@@ -2,6 +2,10 @@
 
 /* @author saihou */
 
+.bread-control {
+    margin-top: 15px;
+}
+
 .page-nav {
     width: 500px;
     margin: 0 auto;
