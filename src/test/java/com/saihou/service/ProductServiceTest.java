@@ -2,6 +2,8 @@ package com.saihou.service;
 
 import com.saihou.entity.Product;
 import com.saihou.entity.ProductImage;
+import com.saihou.entity.Property;
+import com.saihou.entity.PropertyValue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class ProductServiceTest {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private PropertyValueService propertyValueService;
 
     @Test
     public void testFindAll() {
@@ -34,5 +38,20 @@ public class ProductServiceTest {
                 System.out.println(productImage);
             }
         }
+    }
+
+    @Test
+    public void testFindPropertyValue() {
+        List<PropertyValue> propertyValues = propertyValueService.findByPid(1);
+
+        for (PropertyValue propertyValue : propertyValues) {
+            System.out.println(propertyValue);
+        }
+    }
+
+    @Test
+    public void testFindByCondition() {
+        PropertyValue pv = propertyValueService.findByCondition(1, 6);
+        System.out.println(pv);
     }
 }

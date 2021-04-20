@@ -97,3 +97,29 @@ function openImageDeleteModal(id) {
 
 /* productImage end */
 
+/* propertyValue begin */
+function propertyEditConfirm() {
+    let data = [];
+
+    $('input[name="value"]').each(function () {
+        data.push({
+            'id': $(this).data('id'),
+            'pid': $(this).data('pid'),
+            'ptid': $(this).data('ptid'),
+            'value': $(this).val()
+        });
+    });
+
+    $.ajax({
+        url:'update',
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+        data: JSON.stringify(data),
+        success: function (ret) {
+            $('#success').modal();
+        }
+    });
+}
+
+/* propertyValue end */
+

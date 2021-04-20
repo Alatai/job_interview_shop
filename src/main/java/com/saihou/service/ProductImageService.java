@@ -21,6 +21,13 @@ public interface ProductImageService {
 
     List<ProductImage> findByPid(Integer pid);
 
+    /**
+     * 商品id、商品写真タイプを基に、商品写真を検索する
+     *
+     * @param pid  商品id
+     * @param type 商品写真タイプ
+     * @return 商品写真リスト
+     */
     List<ProductImage> findByCondition(Integer pid, String type);
 
     int insert(ProductImage productImage);

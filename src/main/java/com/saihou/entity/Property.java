@@ -12,7 +12,7 @@ public class Property implements Serializable {
 
     private Integer id;
 
-    private Integer cid;
+    private Integer cid; // 分類id
 
     private String name;
 

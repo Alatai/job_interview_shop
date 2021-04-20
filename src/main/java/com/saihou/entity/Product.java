@@ -24,7 +24,7 @@ public class Product implements Serializable {
 
     private Integer stock;
 
-    private Integer cid;
+    private Integer cid; // 分類id
 
     private Date createdDate;
 

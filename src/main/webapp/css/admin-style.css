@@ -20,3 +20,17 @@
 .image-table {
     margin-top: 20px;
 }
+
+.image-input {
+    margin: 0 20px;
+}
+
+.property-edit {
+    margin: 0 auto 10px;
+}
+
+.property-confirm {
+    display: block;
+    margin: 20px auto 0;
+}
+

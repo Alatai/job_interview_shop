@@ -47,7 +47,7 @@
                     <td>${product.promotePrice}</td>
                     <td>${product.stock}</td>
                     <td><a href="/jishop/admin/image/list?pid=${product.id}"><i class="fas fa-images"></i></a></td>
-                    <td><a href="#"><i class="fas fa-tasks"></i></a></td>
+                    <td><a href="/jishop/admin/pvalue/edit?pid=${product.id}"><i class="fas fa-tasks"></i></a></td>
                     <td>
                         <a href="#" onclick="openProductEditModal(${product.id})">
                             <input type="hidden" id="productName${product.id}" value="${product.name}">

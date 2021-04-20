@@ -12,7 +12,7 @@ public class ProductImage implements Serializable {
 
     private Integer id;
 
-    private Integer pid;
+    private Integer pid; // 商品id
 
     private String type;
 

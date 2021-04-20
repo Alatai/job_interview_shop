@@ -20,22 +20,21 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id
-        , name, subtitle, originalPrice, promotePrice, stock, cid, createdDate
+        id, name, subtitle, originalPrice, promotePrice, stock, cid, createdDate
     </sql>
 
     <!-- findAll -->
     <select id="findAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from product
+        from Product
     </select>
 
     <!-- findById -->
     <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from product
+        from Product
         where id = #{id}
     </select>
 
@@ -43,13 +42,13 @@
     <select id="findByCid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from product
+        from Product
         where cid = #{cid}
     </select>
 
     <!-- insert -->
     <insert id="insert" parameterType="com.saihou.entity.Product">
-        insert into product (id, name, subtitle,
+        insert into Product (id, name, subtitle,
                              originalPrice, promotePrice, stock,
                              cid, createdDate)
         values (#{id}, #{name}, #{subtitle},
@@ -59,7 +58,7 @@
 
     <!-- update -->
     <update id="update" parameterType="com.saihou.entity.Product">
-        update product
+        update Product
         set name          = #{name},
             subtitle      = #{subtitle},
             originalPrice = #{originalPrice},
@@ -73,7 +72,7 @@
     <!-- delete -->
     <delete id="delete" parameterType="java.lang.Integer">
         delete
-        from product
+        from Product
         where id = #{id}
     </delete>
 
