@@ -4,9 +4,7 @@ import com.saihou.entity.Product;
 import com.saihou.entity.Property;
 import com.saihou.entity.PropertyValue;
 import com.saihou.mapper.PropertyValueMapper;
-import com.saihou.query.BaseQuery;
 import com.saihou.query.PropertyValueQuery;
-import com.saihou.service.PropertyService;
 import com.saihou.service.PropertyValueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,8 +23,6 @@ public class PropertyValueServiceImpl implements PropertyValueService {
     @Autowired
     @Qualifier("propertyValueMapper")
     private PropertyValueMapper propertyValueMapper;
-    @Autowired
-    private PropertyService propertyService;
 
     @Override
     public PropertyValue findById(Integer id) {

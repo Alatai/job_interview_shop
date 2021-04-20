@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product findByCid(Integer id) {
+    public List<Product> findByCid(Integer id) {
         return productMapper.findByCid(id);
     }
 

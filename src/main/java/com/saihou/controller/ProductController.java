@@ -7,6 +7,7 @@ import com.saihou.entity.Product;
 import com.saihou.entity.Property;
 import com.saihou.service.CategoryService;
 import com.saihou.service.ProductService;
+import com.saihou.utils.PageParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,17 +32,22 @@ public class ProductController {
 
     @RequestMapping(value = {"/index", "/list"})
     public String list(Model model, Integer currentPage, Integer cid) {
+        Category category = categoryService.findById(cid);
+
         currentPage = currentPage == null ? 1 : currentPage;
         PageHelper.startPage(currentPage, 8);
 
-        Category category = categoryService.findById(cid);
-        List<Product> products = category.getProducts();
+        List<Product> products = productService.findByCid(cid);
         PageInfo<Product> pageInfo = new PageInfo<>(products);
+
+        PageParam pageParam = new PageParam();
+        pageParam.setParam("&cid=" + cid);
 
         model.addAttribute("title", "商品");
         model.addAttribute("category", category);
         model.addAttribute("products", products);
         model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("pageParam", pageParam);
 
         return "/admin/product/list";
     }

@@ -33,7 +33,7 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
-    public Property findByCid(Integer cid) {
+    public List<Property> findByCid(Integer cid) {
         return propertyMapper.findByCid(cid);
     }
 

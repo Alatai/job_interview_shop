@@ -58,8 +58,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                <#include "../../common/admin/pagenav.ftl">
             </div>
         </div>
 
@@ -106,8 +104,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                <#include "../../common/admin/pagenav.ftl">
             </div>
         </div>
     </div>

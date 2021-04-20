@@ -18,7 +18,7 @@ public interface PropertyMapper {
 
     Property findById(Integer id);
 
-    Property findByCid(Integer cid);
+    List<Property> findByCid(Integer cid);
 
     int insert(Property record);
 

@@ -4,11 +4,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/jishop/admin/category/list">分類管理<span class="sr-only">(current)</span></a>
+                <li class="nav-item <#if categories??>active</#if>">
+                    <a class="nav-link" href="/jishop/admin/category/list">分類管理</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ユーザ管理</a>
+                <li class="nav-item <#if users??>active</#if>">
+                    <a class="nav-link" href="/jishop/admin/user/list">ユーザ管理</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">オーダー管理</a>

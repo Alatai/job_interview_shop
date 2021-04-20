@@ -18,7 +18,7 @@ public interface ProductMapper {
 
     Product findById(Integer id);
 
-    Product findByCid(Integer id);
+    List<Product> findByCid(Integer id);
 
     int insert(Product product);
 

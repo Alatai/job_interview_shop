@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saihou.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.saihou.entity.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, password
+    </sql>
+
+    <!-- findAll -->
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+    </select>
+
+    <!-- findById -->
+    <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where id = #{id}
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterType="com.saihou.entity.User">
+        insert into user (id, name, password)
+        values (#{id}, #{name}, #{password})
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterType="com.saihou.entity.User">
+        update user
+        set name     = #{name},
+            password = #{password}
+        where id = #{id}
+    </update>
+
+    <!-- delete -->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete
+        from user
+        where id = #{id}
+    </delete>
+
+</mapper>
