@@ -1,4 +1,4 @@
-package com.saihou.controller;
+package com.saihou.controller.admin;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

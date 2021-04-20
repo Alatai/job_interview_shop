@@ -1,11 +1,11 @@
-package com.saihou.controller;
+package com.saihou.controller.admin;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.saihou.entity.Category;
-import com.saihou.entity.Property;
+import com.saihou.entity.Product;
 import com.saihou.service.CategoryService;
-import com.saihou.service.PropertyService;
+import com.saihou.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,17 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 /**
- * 商品属性
+ * 商品
  *
  * @author saihou
  * @date 2021/04/19
  */
 @Controller
-@RequestMapping("/admin/property")
-public class PropertyController {
+@RequestMapping("/admin/product")
+public class ProductController {
 
     @Autowired
-    private PropertyService propertyService;
+    private ProductService productService;
     @Autowired
     private CategoryService categoryService;
 
@@ -35,39 +35,40 @@ public class PropertyController {
         currentPage = currentPage == null ? 1 : currentPage;
         PageHelper.startPage(currentPage, 8);
 
-        List<Property> properties = propertyService.findByCid(cid);
-        PageInfo<Property> pageInfo = new PageInfo<>(properties);
+        List<Product> products = productService.findByCid(cid);
+        PageInfo<Product> pageInfo = new PageInfo<>(products);
 
         String pageParam = "&cid=" + cid;
 
-        model.addAttribute("title", "商品属性");
+        model.addAttribute("title", "商品");
         model.addAttribute("category", category);
-        model.addAttribute("properties", properties);
+        model.addAttribute("products", products);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("pageParam", pageParam);
 
-        return "/admin/property/list";
+        return "/admin/product/list";
     }
 
     @RequestMapping("/add")
-    public String add(Property property) {
-        propertyService.insert(property);
+    public String add(Product product) {
+        productService.insert(product);
 
-        return "redirect:/admin/property/list?cid=" + property.getCid();
+        return "redirect:/admin/product/list?cid=" + product.getCid();
     }
 
     @RequestMapping("/update")
-    public String update(Property property) {
-        propertyService.update(property);
+    public String update(Product product) {
+        productService.update(product);
 
-        return "redirect:/admin/property/list?cid=" + property.getCid();
+        return "redirect:/admin/product/list?cid=" + product.getCid();
     }
 
     @RequestMapping("/delete")
     public String delete(Integer id) {
-        Property property = propertyService.findById(id);
-        propertyService.delete(id);
+        Product product = productService.findById(id);
+        productService.delete(id);
 
-        return "redirect:/admin/property/list?cid=" + property.getCid();
+        return "redirect:/admin/product/list?cid=" + product.getCid();
     }
+
 }

@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 /**
  * ユーザ
+ *
+ * @author saihou
+ * @date 2021/04/20
  */
 public class User implements Serializable {
 

@@ -1,4 +1,4 @@
-package com.saihou.controller;
+package com.saihou.controller.admin;
 
 import com.saihou.entity.Product;
 import com.saihou.entity.PropertyValue;
