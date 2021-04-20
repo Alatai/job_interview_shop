@@ -14,6 +14,9 @@
         <!-- Category -->
         <association property="category" column="cid" javaType="com.saihou.entity.Category" select="com.saihou.mapper.CategoryMapper.findById">
         </association>
+        <!-- ProductImage -->
+        <collection property="productImages" column="id" ofType="com.saihou.entity.ProductImage" select="com.saihou.mapper.ProductImageMapper.findByPid">
+        </collection>
     </resultMap>
 
     <sql id="Base_Column_List">

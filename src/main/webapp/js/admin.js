@@ -86,3 +86,14 @@ function openProductEditModal(id) {
 }
 
 /* product end */
+
+/* productImage begin */
+function openImageDeleteModal(id) {
+    console.log(id);
+    let url = "http://localhost:8080/jishop/admin/image/delete?id=" + id;
+    $('#deleteUrl').val(url);
+    $('#deleteImage').modal();
+}
+
+/* productImage end */
+

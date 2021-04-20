@@ -1,12 +1,14 @@
 package com.saihou.entity;
 
+import java.io.Serializable;
+
 /**
  * 商品属性
  *
  * @author saihou
  * @date 2021/04/19
  */
-public class Property {
+public class Property implements Serializable {
 
     private Integer id;
 

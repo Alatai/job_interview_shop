@@ -1,6 +1,8 @@
 <nav aria-label="Page navigation example">
     <div class="container">
         <div class="page-nav">
+            <input type="hidden" name="cid" value="${category.id}">
+            <input type="hidden" name="pid" value="${product.id}">
             <ul class="pagination">
                 <li class="page-item">
                     <a class="page-link" href="?currentPage=${pageInfo.prePage}" aria-label="Previous"

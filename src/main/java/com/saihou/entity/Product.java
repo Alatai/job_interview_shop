@@ -1,6 +1,8 @@
 package com.saihou.entity;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 商品
@@ -8,7 +10,7 @@ import java.util.Date;
  * @author saihou
  * @date 2021/04/19
  */
-public class Product {
+public class Product implements Serializable {
 
     private Integer id;
 
@@ -27,6 +29,8 @@ public class Product {
     private Date createdDate;
 
     private Category category;
+
+    private List<ProductImage> productImages;
 
     public Integer getId() {
         return id;
@@ -98,6 +102,14 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public List<ProductImage> getProductImages() {
+        return productImages;
+    }
+
+    public void setProductImages(List<ProductImage> productImages) {
+        this.productImages = productImages;
     }
 
     @Override

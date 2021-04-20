@@ -16,6 +16,7 @@
     </div>
 
     <div>
+        <input id="deleteUrl" type="hidden">
         <table class="table">
             <thead>
             <tr>
@@ -39,7 +40,6 @@
                     </td>
                     <td>
                         <a href="#" onclick="openPropertyDeleteModal(${property.id})">
-                            <input id="deleteUrl" type="hidden">
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>

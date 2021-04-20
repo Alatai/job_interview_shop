@@ -55,7 +55,8 @@
     <!-- 告诉前端控制器，哪些静态资源不拦截 -->
     <mvc:resources mapping="/js/**" location="/js/**"/>
     <mvc:resources mapping="/css/**" location="/css/**"/>
-    <mvc:resources mapping="/image/**" location="/images/**"/>
+    <mvc:resources mapping="/image/single/**" location="/image/single/**"/>
+    <mvc:resources mapping="/image/detail/**" location="/image/detail/**"/>
     <mvc:resources mapping="/webfonts/**" location="/webfonts/**"/>
 
     <!-- 开启SpringMVC框架注解的支持 -->

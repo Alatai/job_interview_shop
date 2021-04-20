@@ -8,7 +8,7 @@
             <div class="row">
                 <ol class="breadcrumb col-11">
                     <li class="breadcrumb-item"><a href="#">すべての分類</a></li>
-                    <li class="breadcrumb-item"><a href="#">商品分類</a></li>
+                    <li class="breadcrumb-item"><a href="#">${category.name}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">商品</li>
                 </ol>
                 <button type="button" class="btn btn-primary add-button" onclick="openProductEditModal(null)">追加</button>
@@ -17,6 +17,7 @@
     </div>
 
     <div>
+        <input id="deleteUrl" type="hidden">
         <table class="table">
             <thead>
             <tr>
@@ -45,7 +46,7 @@
                     <td>${product.originalPrice}</td>
                     <td>${product.promotePrice}</td>
                     <td>${product.stock}</td>
-                    <td><a href="#"><i class="fas fa-images"></i></a></td>
+                    <td><a href="/jishop/admin/image/list?pid=${product.id}"><i class="fas fa-images"></i></a></td>
                     <td><a href="#"><i class="fas fa-tasks"></i></a></td>
                     <td>
                         <a href="#" onclick="openProductEditModal(${product.id})">
@@ -60,7 +61,6 @@
                     </td>
                     <td>
                         <a href="#" onclick="openProductDeleteModal(${product.id})">
-                            <input id="deleteUrl" type="hidden">
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>

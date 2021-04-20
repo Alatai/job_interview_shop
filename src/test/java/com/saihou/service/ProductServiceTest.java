@@ -1,6 +1,7 @@
 package com.saihou.service;
 
 import com.saihou.entity.Product;
+import com.saihou.entity.ProductImage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ public class ProductServiceTest {
         for (Product product : products) {
             System.out.println(product);
             System.out.println(product.getCategory());
+
+            List<ProductImage> productImages = product.getProductImages();
+            for (ProductImage productImage : productImages) {
+                System.out.println(productImage);
+            }
         }
     }
 }
