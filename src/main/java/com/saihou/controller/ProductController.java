@@ -4,10 +4,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.saihou.entity.Category;
 import com.saihou.entity.Product;
-import com.saihou.entity.Property;
 import com.saihou.service.CategoryService;
 import com.saihou.service.ProductService;
-import com.saihou.utils.PageParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,8 +38,7 @@ public class ProductController {
         List<Product> products = productService.findByCid(cid);
         PageInfo<Product> pageInfo = new PageInfo<>(products);
 
-        PageParam pageParam = new PageParam();
-        pageParam.setParam("&cid=" + cid);
+        String pageParam = "&cid=" + cid;
 
         model.addAttribute("title", "商品");
         model.addAttribute("category", category);

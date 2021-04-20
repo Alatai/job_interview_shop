@@ -7,7 +7,6 @@ import com.saihou.entity.Product;
 import com.saihou.entity.ProductImage;
 import com.saihou.service.ProductImageService;
 import com.saihou.service.ProductService;
-import com.saihou.utils.PageParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,8 +48,7 @@ public class ProductImageController {
 
         PageInfo<ProductImage> pageInfo = new PageInfo<>(productImages);
 
-        PageParam pageParam = new PageParam();
-        pageParam.setParam("&pid=" + pid);
+        String pageParam = "&pid=" + pid;
 
         model.addAttribute("title", "商品写真");
         model.addAttribute("product", product);

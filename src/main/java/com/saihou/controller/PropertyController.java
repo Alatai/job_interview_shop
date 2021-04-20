@@ -6,7 +6,6 @@ import com.saihou.entity.Category;
 import com.saihou.entity.Property;
 import com.saihou.service.CategoryService;
 import com.saihou.service.PropertyService;
-import com.saihou.utils.PageParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,8 +38,7 @@ public class PropertyController {
         List<Property> properties = propertyService.findByCid(cid);
         PageInfo<Property> pageInfo = new PageInfo<>(properties);
 
-        PageParam pageParam = new PageParam();
-        pageParam.setParam("&cid=" + cid);
+        String pageParam = "&cid=" + cid;
 
         model.addAttribute("title", "商品属性");
         model.addAttribute("category", category);

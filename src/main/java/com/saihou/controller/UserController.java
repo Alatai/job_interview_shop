@@ -5,7 +5,6 @@ import com.github.pagehelper.PageInfo;
 import com.saihou.entity.Category;
 import com.saihou.entity.User;
 import com.saihou.service.UserService;
-import com.saihou.utils.PageParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
