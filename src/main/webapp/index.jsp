@@ -5,9 +5,10 @@
 </head>
 <body>
 
-<h3>hello</h3>
+<h3>jishop index</h3>
 
-<a href="admin/category/list">categoryList</a><br>
+<a href="http://localhost:8080/jishop/admin/category/list">サイト管理</a><br>
+<a href="http://localhost:8080/jishop/index">サイトホーム</a>
 
 </body>
 </html>

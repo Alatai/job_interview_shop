@@ -22,6 +22,8 @@ public class Category implements Serializable {
 
     private List<Product> products;
 
+    private List<List<Product>> productsByRow;
+
     public Integer getId() {
         return id;
     }
@@ -60,6 +62,14 @@ public class Category implements Serializable {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public List<List<Product>> getProductsByRow() {
+        return productsByRow;
+    }
+
+    public void setProductsByRow(List<List<Product>> productsByRow) {
+        this.productsByRow = productsByRow;
     }
 
     @Override

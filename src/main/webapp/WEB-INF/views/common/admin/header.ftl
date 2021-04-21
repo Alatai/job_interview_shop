@@ -10,7 +10,7 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="../../css/all.min.css" type="text/css">
     <!-- custom css -->
-    <link rel="stylesheet" href="../../css/admin-style.css" type="text/css">
+    <link rel="stylesheet" href="../../css/admin.css" type="text/css">
     <!-- fix favicon -->
     <link rel="shortcut icon" href="#">
     <!-- bootstrap js -->

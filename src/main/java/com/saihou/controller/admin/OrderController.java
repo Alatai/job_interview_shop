@@ -18,7 +18,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/20
  */
-@Controller
+@Controller("orderController")
 @RequestMapping("/admin/order")
 public class OrderController {
 

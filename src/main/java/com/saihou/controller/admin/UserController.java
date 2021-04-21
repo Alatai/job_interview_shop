@@ -2,7 +2,6 @@ package com.saihou.controller.admin;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.saihou.entity.Category;
 import com.saihou.entity.User;
 import com.saihou.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/20
  */
-@Controller
+@Controller("userController")
 @RequestMapping("/admin/user")
 public class UserController {
 
@@ -38,5 +37,4 @@ public class UserController {
 
         return "/admin/user/list";
     }
-
 }

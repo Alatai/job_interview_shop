@@ -1,5 +1,6 @@
 package com.saihou.service;
 
+import com.saihou.entity.Category;
 import com.saihou.entity.Product;
 
 import java.util.List;
@@ -24,4 +25,8 @@ public interface ProductService {
 
     int delete(Integer id);
 
+    /**
+     * 分類を基に、関連している商品を検索
+     */
+    void fillRows(List<Category> categories);
 }

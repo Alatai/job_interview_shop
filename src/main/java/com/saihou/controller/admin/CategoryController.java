@@ -17,7 +17,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/18
  */
-@Controller
+@Controller("categoryController")
 @RequestMapping("/admin/category")
 public class
 CategoryController {
@@ -59,5 +59,4 @@ CategoryController {
 
         return "redirect:/admin/category/list";
     }
-
 }

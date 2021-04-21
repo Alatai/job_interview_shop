@@ -1,6 +1,8 @@
-$(function () {
+'use strict';
 
-});
+/**
+ * @author saihou
+ */
 
 /* common begin */
 function deleteConfirm() {

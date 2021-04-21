@@ -19,7 +19,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/19
  */
-@Controller
+@Controller("productController")
 @RequestMapping("/admin/product")
 public class ProductController {
 
@@ -70,5 +70,4 @@ public class ProductController {
 
         return "redirect:/admin/product/list?cid=" + product.getCid();
     }
-
 }

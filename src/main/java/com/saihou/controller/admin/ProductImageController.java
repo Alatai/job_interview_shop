@@ -25,7 +25,7 @@ import java.util.UUID;
  * @author saihou
  * @date 2021/04/19
  */
-@Controller
+@Controller("productImageController")
 @RequestMapping("/admin/image")
 public class ProductImageController {
 
@@ -104,6 +104,4 @@ public class ProductImageController {
 
         return "redirect:/admin/image/list?pid=" + productImage.getPid();
     }
-
-
 }
