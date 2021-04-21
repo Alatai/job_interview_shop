@@ -111,7 +111,7 @@ function propertyEditConfirm() {
     });
 
     $.ajax({
-        url:'update',
+        url: 'update',
         type: "POST",
         contentType: "application/json;charset=UTF-8",
         data: JSON.stringify(data),
@@ -122,4 +122,12 @@ function propertyEditConfirm() {
 }
 
 /* propertyValue end */
+
+/* order begin */
+function showItems() {
+    $('#orderItems').toggle();
+}
+
+/* order end */
+
 

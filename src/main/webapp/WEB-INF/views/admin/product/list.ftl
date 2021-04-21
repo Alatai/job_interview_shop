@@ -39,7 +39,7 @@
                 <tr>
                     <td>${product.id}</td>
                     <td>
-                        <img src="#" alt="暂无图片">
+                        <img style="width: 50px;" src="../../image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>" alt="暂无图片">
                     </td>
                     <td>${product.name}</td>
                     <td>${product.subtitle}</td>

@@ -10,8 +10,8 @@
                 <li class="nav-item <#if users??>active</#if>">
                     <a class="nav-link" href="/jishop/admin/user/list">ユーザ管理</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">オーダー管理</a>
+                <li class="nav-item <#if orders??>active</#if>">
+                    <a class="nav-link" href="/jishop/admin/order/list">オーダー管理</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

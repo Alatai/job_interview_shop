@@ -5,14 +5,10 @@
 <div class="container">
     <div class="bread-control">
         <nav aria-label="breadcrumb">
-            <div class="row">
-                <ol class="breadcrumb col-11">
-                    <li class="breadcrumb-item"><a href="#">サイト管理</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">商品分類</li>
-                </ol>
-                <button type="button" class="btn btn-primary add-button" onclick="openCategoryEditModal(null)">追加
-                </button>
-            </div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">サイト管理</a></li>
+                <li class="breadcrumb-item active" aria-current="page">ユーザ管理</li>
+            </ol>
         </nav>
     </div>
 

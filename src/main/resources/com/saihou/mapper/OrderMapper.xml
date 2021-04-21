@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saihou.mapper.OrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.saihou.entity.Order">
+        <id column="id" property="id"/>
+        <result column="orderCode" property="orderCode"/>
+        <result column="address" property="address"/>
+        <result column="postCode" property="postCode"/>
+        <result column="receiver" property="receiver"/>
+        <result column="phoneNumber" property="phoneNumber"/>
+        <result column="remark" property="remark"/>
+        <result column="createdDate" property="createdDate"/>
+        <result column="paidDate" property="paidDate"/>
+        <result column="deliveredDate" property="deliveredDate"/>
+        <result column="confirmedDate" property="confirmedDate"/>
+        <result column="uid" property="uid"/>
+        <result column="status" property="status"/>
+        <!-- User -->
+        <association property="user" column="uid" javaType="com.saihou.entity.User"
+                     select="com.saihou.mapper.UserMapper.findById">
+        </association>
+        <!-- OrderItem -->
+        <collection property="orderItems" column="id" ofType="com.saihou.entity.OrderItem"
+                    select="com.saihou.mapper.OrderItemMapper.findByOid">
+        </collection>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        , orderCode, address, postCode, receiver, phoneNumber, remark, createdDate, paidDate, deliveredDate, confirmedDate, uid, status
+    </sql>
+
+    <!-- findAll -->
+    <select id="findAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from Orders
+    </select>
+
+    <!-- findById -->
+    <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from Orders
+        where id = #{id}
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterType="com.saihou.entity.Order">
+        insert into Orders (id, orderCode, address, postCode, receiver, phoneNumber, remark, createdDate, paidDate,
+                            deliveredDate, confirmedDate, uid, status)
+        values (#{id}, #{orderCode}, #{address}, #{postCode}, #{receiver}, #{phoneNumber}, #{remark}, #{createdDate},
+                #{paidDate}, #{deleverdDate}, #{confirmedDate}, #{uid}, #{satus})
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterType="com.saihou.entity.Order">
+        update Orders
+        set id            = #{id},
+            orderCode     = #{orderCode},
+            address       = #{address},
+            postCode      = #{postCode},
+            receiver      = #{receiver},
+            phoneNumber   = #{phoneNumber},
+            remark        = #{remark},
+            createdDate   = #{createdDate},
+            paidDate      = #{paidDate},
+            deliveredDate = #{deliveredDate},
+            confirmedDate = #{confirmedDate},
+            uid           = #{uid},
+            status        = #{status}
+        where id = #{id}
+    </update>
+
+    <!-- delete -->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete
+        from Orders
+        where id = #{id}
+    </delete>
+
+</mapper>
