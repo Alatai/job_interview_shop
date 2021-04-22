@@ -21,4 +21,11 @@ public interface UserService {
     int update(User user);
 
     int delete(Integer id);
+
+    boolean isExist(String name);
+
+    /**
+     * ユーザネームとパスワードを基に、ユーザを検索する
+     */
+    User findByCondition(String name, String password);
 }

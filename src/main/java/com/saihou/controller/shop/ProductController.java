@@ -18,7 +18,7 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping("/search")
-    private String search(String keyword) {
+    private String search(Integer pid) {
         return "";
     }
 }

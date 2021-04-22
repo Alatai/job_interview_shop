@@ -2,6 +2,7 @@ package com.saihou.service.impl;
 
 import com.saihou.entity.User;
 import com.saihou.mapper.UserMapper;
+import com.saihou.query.UserQuery;
 import com.saihou.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -45,5 +46,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public int delete(Integer id) {
         return userMapper.delete(id);
+    }
+
+    @Override
+    public boolean isExist(String name) {
+        List<User> users = userMapper.findByName(name);
+
+        return !users.isEmpty();
+    }
+
+    @Override
+    public User findByCondition(String name, String password) {
+        UserQuery query = new UserQuery();
+        query.setName(name);
+        query.setPassword(password);
+
+        return userMapper.findByCondition(query);
     }
 }

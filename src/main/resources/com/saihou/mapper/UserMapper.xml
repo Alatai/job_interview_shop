@@ -9,33 +9,50 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, name, password
+        id
+        , name, password
     </sql>
 
     <!-- findAll -->
     <select id="findAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from user
+        from User
     </select>
 
     <!-- findById -->
     <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from user
+        from User
         where id = #{id}
+    </select>
+
+    <!-- findByName -->
+    <select id="findByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from User
+        where name = #{name}
+    </select>
+
+    <!-- findByCondition -->
+    <select id="findByCondition" parameterType="com.saihou.query.UserQuery" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from User
+        where name = #{name} and password = #{password}
     </select>
 
     <!-- insert -->
     <insert id="insert" parameterType="com.saihou.entity.User">
-        insert into user (id, name, password)
+        insert into User (id, name, password)
         values (#{id}, #{name}, #{password})
     </insert>
 
     <!-- update -->
     <update id="update" parameterType="com.saihou.entity.User">
-        update user
+        update User
         set name     = #{name},
             password = #{password}
         where id = #{id}
@@ -44,7 +61,7 @@
     <!-- delete -->
     <delete id="delete" parameterType="java.lang.Integer">
         delete
-        from user
+        from User
         where id = #{id}
     </delete>
 

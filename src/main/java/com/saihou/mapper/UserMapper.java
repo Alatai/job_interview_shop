@@ -1,6 +1,7 @@
 package com.saihou.mapper;
 
 import com.saihou.entity.User;
+import com.saihou.query.UserQuery;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public interface UserMapper {
 
     List<User> findAll();
 
+    List<User> findByName(String name);
+
     User findById(Integer id);
 
     int insert(User user);
@@ -21,4 +24,5 @@ public interface UserMapper {
 
     int delete(Integer id);
 
+    User findByCondition(UserQuery query);
 }

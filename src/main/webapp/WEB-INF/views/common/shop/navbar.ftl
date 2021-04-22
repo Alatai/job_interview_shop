@@ -1,23 +1,20 @@
-<div class="site-nav">
-    <div class="row">
-        <div class="left">
-            <a href="#">JIShop ホーム</a>
-        </div>
+<div class="ji-nav">
+    <div class="ji-container">
+        <a href="#">
+            <span class="red-color"><i class="fas fa-home"></i></span>
+            JI SHOP ホーム
+        </a>
 
-        <div class="right">
-            <!-- login -->
+        <span></span>
+        <a href="#">ログイン</a>
+        <a href="#">新規登録</a>
+
+        <span class="float-right">
+            <a href="#">注文履歴</a>
             <a href="#">
-                <div>
-                    <span>こんにちは、ログイン</span>
-                </div>
-                <div>
-                    <span>アカウント</span>
-                </div>
+                <i class="fas fa-shopping-cart"></i>
+                <span class="red-color">カート<strong>0</strong>件</span>
             </a>
-            <a class="item" href="">注文履歴</a>
-            <a class="item" href="">カート</a>
-        </div>
+        </span>
     </div>
-
-    <div class=""></div>
 </div>

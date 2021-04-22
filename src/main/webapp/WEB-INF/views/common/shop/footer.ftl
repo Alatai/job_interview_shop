@@ -2,7 +2,7 @@
     <div class="row">
         <div class="left">
             <a class="logo" href="index.html">
-                <img style="width: 180px;" src="../jishop/image/site/logo.png" alt="">
+                <img style="width: 180px;" src="http://localhost:8080/jishop/image/site/logo.png" alt="">
                 <span>Job Interview Shop</span>
             </a>
         </div>
