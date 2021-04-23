@@ -8,12 +8,14 @@
         <result column="ptid" property="ptid"/>
         <result column="value" property="value"/>
         <!-- property -->
-        <association property="property" column="ptid" javaType="com.saihou.entity.Property" select="com.saihou.mapper.PropertyMapper.findById">
+        <association property="property" column="ptid" javaType="com.saihou.entity.Property"
+                     select="com.saihou.mapper.PropertyMapper.findById">
         </association>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, pid, ptid, value
+        id
+        , pid, ptid, value
     </sql>
 
     <!-- findById -->
@@ -34,10 +36,11 @@
 
     <!-- findByCondition -->
     <select id="findByCondition" parameterType="com.saihou.query.BaseQuery" resultMap="BaseResultMap">
-        select pv.* from PropertyValue pv
-            right join Property pt on pt.id = pv.ptid
-            join Product pd on pd.cid = pt.cid
-        where pd.id = #{pid} and pt.id = #{ptid}
+        select
+        <include refid="Base_Column_List"/>
+        from PropertyValue
+        where pid = #{pid}
+        and ptid = #{ptid}
     </select>
 
     <!-- insert -->

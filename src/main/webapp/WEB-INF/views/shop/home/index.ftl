@@ -9,12 +9,11 @@
         <#if category_index < 1>
             <div class="p-row clear-fix">
                 <div class="left-mark"></div>
-                <span class="c-title">${category.name}</span>
-                <div style="clear:both"></div>
+                <span class="c-title clear-fix">${category.name}</span>
                 <#list category.products as product>
                     <#if product_index < 5>
                         <div class="p-item">
-                            <a href="#">
+                            <a href="product/detail?id=${product.id}">
                                 <img src="../jishop/image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>"
                                      alt="暂无图片">
                             </a>

@@ -280,3 +280,371 @@ button, input, textarea, select, a {
 }
 
 /* ji-products end */
+
+/* ji-register begin */
+.ji-register form {
+    width: 450px;
+    height: 450px;
+    margin: 100px auto 0;
+    border: 1px solid #e7e7e7;
+}
+
+.ji-register form div {
+    height: 56px;
+}
+
+.ji-register label {
+    width: 150px;
+    padding: 10px 30px;
+    text-align: right;
+}
+
+.ji-register .jir-msg {
+    line-height: 56px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.ji-register input {
+    width: 213px;
+    height: 36px;
+    border: 1px solid #DEDEDE;
+    font-size: 14px;
+}
+
+.ji-register button {
+    display: block;
+    width: 170px;
+    height: 36px;
+    margin: 10px auto 0;
+    border-radius: 2px;
+    background-color: #C40000;
+    border-width: 0;
+    color: white;
+}
+
+/* ji-register end */
+
+/* ji-login begin */
+.jil-panel {
+    position: relative;
+    top: 100px;
+    width: 350px;
+    height: 400px;
+    margin: 0 auto;
+    border: 1px solid #e7e7e7;
+}
+
+.jil-panel form {
+    padding: 60px 25px 40px 25px;
+}
+
+.jil-panel div {
+    margin: 20px 0;
+}
+
+.jil-panel label i {
+    background-color: #CBCBCB;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.jil-panel input {
+    width: 260px;
+    height: 40px;
+    margin: -4px;
+    border: 1px solid #CBCBCB;
+}
+
+.jil-panel .jil-tip {
+    font-size: 14px;
+    color: #999;;
+}
+
+.jil-panel button {
+    width: 100%;
+    height: 34px;
+    border: 0;
+    background-color: #C40000;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+/* ji-login end */
+
+/* product-panel begin */
+.product-panel {
+    max-width: 1013px;
+    margin: 10px auto;
+}
+
+.ji-product {
+    font-size: 12px;
+    margin: 40px 20px;
+}
+
+.ji-product .pd-img {
+    float: left;
+    width: 400px;
+    height: 400px;
+}
+
+.ji-product .pd-info {
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.pd-info .pd-title {
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.pd-info .pd-subtitle {
+    margin: 0 10px;
+    font-size: 12px;
+    color: #dd2727;
+}
+
+.pd-info .pd-price {
+    margin-top: 50px;
+}
+
+.pd-price .price-panel {
+    height: 102px;
+    padding: 10px;
+    background-image: url(http://localhost:8080/jishop/image/site/pbcg.png);
+    color: #666;
+}
+
+.pd-price .op-price {
+    margin-top: 5px;
+}
+
+.pd-price .op-desc {
+    display: inline-block;
+    width: 68px;
+    color: #999;
+}
+
+.pd-price .op-num {
+    font-size: 12px;
+    color: #333;
+    text-decoration: line-through;
+}
+
+.pd-price .pro-desc {
+    display: inline-block;
+    position: relative;
+    left: 0;
+    top: -10px;
+    width: 68px;
+}
+
+.pd-price .pro-symbol {
+    font-size: 18px;
+    color: #c40000;
+}
+
+.pd-price .pro-num {
+    font-size: 30px;
+    font-weight: bold;
+    color: #c40000;
+}
+
+.pd-info .sale-review {
+    margin: 20px 0;
+    padding: 10px;
+    border-top-style: dotted;
+    border-top-color: #C9C9C9;
+    border-top-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: #C9C9C9;
+    border-bottom-width: 1px;
+}
+
+.sale-review div {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+}
+
+.sale-review div:first-child {
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #E5DFDA;
+}
+
+.pd-info .pd-num {
+    color: #999;
+}
+
+.pd-num .pn-setting {
+    display: inline-block;
+    width: 43px;
+    height: 32px;
+    padding-top: 7px;
+    border: 1px solid #999;
+}
+
+.pn-setting input {
+    width: 80%;
+    height: 80%;
+    border: 0;
+}
+
+.pd-num .up-down img {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pd-num .up-down {
+    display: block;
+    width: 20px;
+    height: 14px;
+    padding-top: 4px;
+    text-align: center;
+    border: 1px solid #999;
+}
+
+.pd-num .ud-middle {
+    display: block;
+    height: 4px;
+}
+
+.pd-num .arrow {
+    display: inline-block;
+    width: 22px;
+    height: 32px;
+    vertical-align: top;
+}
+
+.pd-info .pd-buy {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.pd-buy button {
+    display: inline-block;
+    width: 180px;
+    height: 40px;
+    margin: 0 10px;
+}
+
+.pd-buy .buy {
+    margin-top: 5px;
+    border: 1px solid #C40000;
+    background-color: #FFEDED;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    color: #C40000;
+}
+
+.pd-buy .cart {
+    border: 1px solid #C40000;
+    background-color: #C40000;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    color: white;
+}
+
+.pd-buy .cart i {
+    margin-right: 8px;
+}
+
+.p-details {
+    width: 790px;
+    margin: 40px auto;
+    font-size: 12px;
+}
+
+.p-details .pd-top {
+    border: 1px solid #dfdfdf;
+    border-left-width: 0;
+}
+
+.pd-top .detail {
+    position: relative;
+    display: inline-block;
+    width: 90px;
+    line-height: 46px;
+    border-left: 1px solid #cfbfb1;
+    border-right: 1px solid #cfbfb1;
+    text-align: center;
+    font-weight: bold;
+    color: #b10000;
+}
+
+.pd-top .detail:before {
+    display: block;
+    position: absolute;
+    top: -1px;
+    width: 90px;
+    height: 0;
+    margin-left: -1px;
+    border-width: 1px;
+    border-color: #b00000;
+    border-style: solid;
+    content: "";
+}
+
+.pd-top .detail:after {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -1px;
+    width: 0;
+    height: 0;
+    margin-left: -5px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #b00000 transparent transparent;
+    content: "";
+}
+
+.pd-top .review {
+    padding: 0 20px;
+    border-right: 1px dotted #d2d2d2;
+    color: #333;
+}
+
+.review span {
+    color: #3355b9;
+}
+
+.p-details .pd-property {
+    border: 1px solid #dfdfdf;
+    padding: 40px;
+}
+
+.pd-property div:first-child {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #999;
+}
+
+.pd-property .pp-list span {
+    float: left;
+    display: block;
+    width: 220px;
+    padding: 8px 0;
+    color: #666;
+}
+
+.p-details img {
+    display: block;
+    width: 790px;
+    margin: 20px 0;
+}
+
+
+
+/* product-panel end */

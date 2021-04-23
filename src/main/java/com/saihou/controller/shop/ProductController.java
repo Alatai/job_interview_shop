@@ -1,9 +1,17 @@
 package com.saihou.controller.shop;
 
+import com.saihou.entity.Product;
+import com.saihou.entity.PropertyValue;
+import com.saihou.entity.Review;
 import com.saihou.service.ProductService;
+import com.saihou.service.PropertyValueService;
+import com.saihou.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * @author Alatai
@@ -16,9 +24,25 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private PropertyValueService propertyValueService;
+    @Autowired
+    private ReviewService reviewService;
 
-    @RequestMapping("/search")
-    private String search(Integer pid) {
-        return "";
+    @RequestMapping("/detail")
+    private String getProduct(Model model, Integer id) {
+        Product product = productService.findById(id);
+        List<PropertyValue> propertyValues = propertyValueService.findByPid(id);
+        List<Review> reviews = reviewService.findByPid(id);
+
+        System.out.println("-------------");
+        System.out.println(propertyValues);
+        System.out.println("-------------");
+
+        model.addAttribute("product", product);
+        model.addAttribute("propertyValues", propertyValues);
+        model.addAttribute("reviews", reviews);
+
+        return "/shop/product/detail";
     }
 }

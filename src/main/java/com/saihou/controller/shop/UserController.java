@@ -43,7 +43,7 @@ public class UserController {
 
         userService.insert(user);
 
-        return "redirect:/user/success";
+        return "redirect:/user/login";
     }
 
     @RequestMapping("/success")
