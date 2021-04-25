@@ -6,6 +6,10 @@
          version="3.0">
     <display-name>Archetype Created Web Application</display-name>
 
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
     <!-- 配置Spring的监听器，默认只加载WEB-INF目录下的applicationContext.xml -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

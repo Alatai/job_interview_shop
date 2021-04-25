@@ -35,6 +35,7 @@ public class PropertyValueController {
         propertyValueService.init(product);
         List<PropertyValue> propertyValues = propertyValueService.findByPid(pid);
 
+        model.addAttribute("title", "属性管理");
         model.addAttribute("propertyValues", propertyValues);
         model.addAttribute("product", product);
         model.addAttribute("category", product.getCategory());

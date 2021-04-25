@@ -41,8 +41,16 @@
         where oid = #{oid}
     </select>
 
+    <!-- findByUid -->
+    <select id="findByUid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from OrderItem
+        where uid = #{uid} and oid is null
+    </select>
+
     <!-- insert -->
-    <insert id="insert" parameterType="com.saihou.entity.OrderItem">
+    <insert id="insert" parameterType="com.saihou.entity.OrderItem" useGeneratedKeys="true" keyProperty="id">
         insert into OrderItem (id, pid, oid,
                                uid, number)
         values (#{id}, #{pid}, #{oid}, #{uid}, #{number})

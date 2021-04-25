@@ -8,9 +8,14 @@
         <div class="right-menu">
             <span><a href="#"><i class="fas fa-shopping-cart"></i>スーパー</a></span>
             <span><a href="#"><i class="fas fa-globe-asia"></i>国際</a></span>
-
             <span><a href="#">ゲーム</a></span>
             <span><a href="#">ゲーム</a></span>
+            <span><a href="#">ゲーム</a></span>
+            <span><a href="#">ゲーム</a></span>
+            <span><a href="#">ゲーム</a></span>
+            <span><a href="#">ゲーム</a></span>
+            <span><a href="#">ゲーム</a></span>
+        </div>
         </div>
     </div>
 

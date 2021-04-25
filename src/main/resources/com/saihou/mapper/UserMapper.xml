@@ -45,7 +45,7 @@
     </select>
 
     <!-- insert -->
-    <insert id="insert" parameterType="com.saihou.entity.User">
+    <insert id="insert" parameterType="com.saihou.entity.User" useGeneratedKeys="true" keyProperty="id">
         insert into User (id, name, password)
         values (#{id}, #{name}, #{password})
     </insert>

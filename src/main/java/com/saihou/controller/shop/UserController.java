@@ -5,10 +5,13 @@ import com.saihou.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.HtmlUtils;
 
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * @author saihou
@@ -76,5 +79,34 @@ public class UserController {
         session.removeAttribute("user");
 
         return "redirect:/index";
+    }
+
+    @RequestMapping("/checkLogin")
+    @ResponseBody
+    public String checkLogin(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+
+        if (user == null) {
+            return "fail";
+        }
+
+        return "success";
+    }
+
+    @RequestMapping("/modalLogin")
+    @ResponseBody
+    public String modalLogin(HttpSession session, @RequestBody Map<String, String> params) {
+        String name = params.get("name");
+        String password = params.get("password");
+
+        User user = userService.findByCondition(name, password);
+
+        if (user == null) {
+            return "fail";
+        }
+
+        session.setAttribute("user", user);
+
+        return "success";
     }
 }

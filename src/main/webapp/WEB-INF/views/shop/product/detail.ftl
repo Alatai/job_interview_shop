@@ -1,6 +1,112 @@
 <#include "../../common/shop/header.ftl">
 <#include "../../common/shop/navbar.ftl">
 
+<script type="text/javascript">
+    $(function () {
+        let stock = ${product.stock};
+
+        // 購入数追加
+        $('#purchaseNum').keyup(function () {
+            let num = $('#purchaseNum').val();
+            num = parseInt(num);
+
+            if (isNaN(num))
+                num = 1;
+            if (num <= 0)
+                num = 1;
+            if (num > stock)
+                num = stock;
+
+            $('#purchaseNum').val(num);
+        });
+
+        // 追加click
+        $('#increaseNum').click(function () {
+            let num = $('#purchaseNum').val();
+            num++;
+            num = num > stock ? stock : num;
+
+            $('#purchaseNum').val(num);
+        });
+
+        // 減少click
+        $('#decreaseNum').click(function () {
+            let num = $('#purchaseNum').val();
+            num--;
+            num = num <= 0 ? 1 : num;
+
+            $('#purchaseNum').val(num);
+        });
+
+        // ショッピングカート
+        $('#add2CartBtn').removeAttr('disable');
+        $('#add2Cart').click(function () {
+            $.get('http://localhost:8080/jishop/user/checkLogin', function (ret) {
+                if ('success' === ret) {
+                    let pid = ${product.id};
+                    let num = $('#purchaseNum').val();
+                    let data = {'pid': pid, 'num': num};
+
+                    $.ajax({
+                        url: 'http://localhost:8080/jishop/order/add2Cart',
+                        type: 'POST',
+                        contentType: 'application/json;charset=UTF-8',
+                        data: JSON.stringify(data),
+                        success: function (ret) {
+                            if ('success' === ret) {
+                                $('#add2CartBtn').html('追加しました');
+                                $('#add2CartBtn').attr('disable', 'disable');
+                                $('#add2CartBtn').css("background-color", "lightgray");
+                                $('#add2CartBtn').css("border-color", "lightgray");
+                                $('#add2CartBtn').css("color", "black");
+                            }
+                        }
+                    });
+                } else {
+                    $('#loginModal').modal();
+                }
+            });
+        });
+
+        // スク購入する
+        $('#buyCurrently').click(function () {
+            $.get('http://localhost:8080/jishop/user/checkLogin', function (ret) {
+                if ('success' === ret) {
+                    let pid = ${product.id};
+                    let num = $('#purchaseNum').val();
+
+                    location.href = 'http://localhost:8080/jishop/order/buyCurrently?pid='
+                        + pid + '&num=' + num;
+                } else {
+                    $('#loginModal').modal();
+                }
+            });
+        });
+
+        //  モーダルログイン
+        $('#modalLoginBtn').click(function () {
+            let name = $('#name').val();
+            let password = $('#password').val();
+            let data = {'name': name, 'password': password};
+
+            $.ajax({
+                url: 'http://localhost:8080/jishop/user/modalLogin',
+                type: 'POST',
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify(data),
+                success: function (ret) {
+                    if (ret === 'success') {
+                        location.reload();
+                    } else {
+                        console.log('error');
+                    }
+                },
+            });
+
+            return true;
+        });
+    });
+</script>
 
 <div class="product-panel">
     <div class="ji-product">
@@ -30,24 +136,24 @@
                 </div>
 
                 <div class="sale-review">
-                    <div>销量 <span> 50</span></div>
-                    <div>累计评价 <span> 19</span></div>
+                    <div>销量 <span> ${product.saleCount}</span></div>
+                    <div>累计评价 <span> ${product.reviewCount}</span></div>
                 </div>
 
                 <div class="pd-num">
                     <span>数量</span>
                     <span>
                     <span class="pn-setting">
-                        <input type="text" placeholder="1">
+                        <input id="purchaseNum" value="1" type="text" placeholder="1">
                     </span>
                     <span class="arrow">
-                        <a class="pn-inc" href="#">
+                        <a id="increaseNum" class="pn-inc" href="#">
                             <span class="up-down"><img src="../image/site/increase.png" alt=""></span>
                         </a>
 
                         <span class="ud-middle"></span>
 
-                        <a class="pn-dec" href="#">
+                        <a id="decreaseNum" class="pn-dec" href="#">
                             <span class="up-down"><img src="../image/site/decrease.png" alt=""></span>
                         </a>
                     </span>
@@ -56,12 +162,12 @@
                 </div>
 
                 <div class="pd-buy">
-                    <a href="#">
-                        <button class="buy">立即购买</button>
+                    <a id="buyCurrently" href="#">
+                        <button id="buy" class="buy">今すく買う</button>
                     </a>
-                    <a href="#">
-                        <button class="cart">
-                            <i class="fas fa-shopping-cart"></i>加入购物车
+                    <a id="add2Cart" href="#">
+                        <button id="add2CartBtn" class="cart">
+                            <i class="fas fa-shopping-cart"></i>カートに入れる
                         </button>
                     </a>
                 </div>
@@ -72,7 +178,7 @@
     <div class="p-details">
         <div class="pd-top">
             <a class="detail" href="#">商品详情</a>
-            <a class="review" href="#">累计评价 <span>19</span></a>
+            <a class="review" href="#">累计评价 <span>${product.reviewCount}</span></a>
         </div>
 
         <div class="pd-property">
@@ -85,8 +191,12 @@
         </div>
 
         <div>
-            <img src="#" alt="">
+            <#list product.detailImages as detailImage>
+                <img src="../image/detail/${detailImage.name}" alt="">
+            </#list>
         </div>
     </div>
 </div>
 
+<#include "../../shop/product/loginModal.ftl">
+<#include "../../common/shop/footer.ftl">

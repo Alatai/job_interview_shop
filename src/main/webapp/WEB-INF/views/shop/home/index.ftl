@@ -6,7 +6,7 @@
 
 <div class="ji-products">
     <#list categories as category>
-        <#if category_index < 1>
+        <#if category_index < 4>
             <div class="p-row clear-fix">
                 <div class="left-mark"></div>
                 <span class="c-title clear-fix">${category.name}</span>
@@ -30,5 +30,5 @@
 </div>
 
 
-<#--<#include "../../common/shop/footer.ftl">-->
+<#include "../../common/shop/footer.ftl">
 

@@ -19,7 +19,7 @@
 
         <span class="float-right">
             <a href="#">注文履歴</a>
-            <a href="#">
+            <a href="http://localhost:8080/jishop/order/cart">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="red-color">カート<strong>0</strong>件</span>
             </a>

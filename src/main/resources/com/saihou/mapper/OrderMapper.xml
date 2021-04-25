@@ -47,7 +47,7 @@
     </select>
 
     <!-- insert -->
-    <insert id="insert" parameterType="com.saihou.entity.Order">
+    <insert id="insert" parameterType="com.saihou.entity.Order" useGeneratedKeys="true" keyProperty="id">
         insert into Orders (id, orderCode, address, postCode, receiver, phoneNumber, remark, createdDate, paidDate,
                             deliveredDate, confirmedDate, uid, status)
         values (#{id}, #{orderCode}, #{address}, #{postCode}, #{receiver}, #{phoneNumber}, #{remark}, #{createdDate},

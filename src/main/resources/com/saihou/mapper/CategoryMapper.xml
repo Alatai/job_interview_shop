@@ -33,7 +33,7 @@
     </select>
 
     <!-- insert -->
-    <insert id="insert" parameterType="com.saihou.entity.Category">
+    <insert id="insert" parameterType="com.saihou.entity.Category" useGeneratedKeys="true" keyProperty="id">
         insert into Category (name, imagePath)
         values (#{name}, #{imagePath})
     </insert>

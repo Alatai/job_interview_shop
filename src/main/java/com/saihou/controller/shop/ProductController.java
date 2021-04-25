@@ -1,8 +1,10 @@
 package com.saihou.controller.shop;
 
 import com.saihou.entity.Product;
+import com.saihou.entity.ProductImage;
 import com.saihou.entity.PropertyValue;
 import com.saihou.entity.Review;
+import com.saihou.service.ProductImageService;
 import com.saihou.service.ProductService;
 import com.saihou.service.PropertyValueService;
 import com.saihou.service.ReviewService;
@@ -25,6 +27,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
     @Autowired
+    private ProductImageService productImageService;
+    @Autowired
     private PropertyValueService propertyValueService;
     @Autowired
     private ReviewService reviewService;
@@ -32,12 +36,15 @@ public class ProductController {
     @RequestMapping("/detail")
     private String getProduct(Model model, Integer id) {
         Product product = productService.findById(id);
+
+        List<ProductImage> singleImages = productImageService.findByCondition(id, ProductImageService.TYPE_SINGLE);
+        List<ProductImage> detailImages = productImageService.findByCondition(id, ProductImageService.TYPE_DETAIL);
+
+        product.setSingleImages(singleImages);
+        product.setDetailImages(detailImages);
+
         List<PropertyValue> propertyValues = propertyValueService.findByPid(id);
         List<Review> reviews = reviewService.findByPid(id);
-
-        System.out.println("-------------");
-        System.out.println(propertyValues);
-        System.out.println("-------------");
 
         model.addAttribute("product", product);
         model.addAttribute("propertyValues", propertyValues);

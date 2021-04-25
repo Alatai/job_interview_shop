@@ -37,7 +37,7 @@
     </select>
 
     <!-- insert -->
-    <insert id="insert" parameterType="com.saihou.entity.Review">
+    <insert id="insert" parameterType="com.saihou.entity.Review" useGeneratedKeys="true" keyProperty="id">
         insert into Review (id, content, uid,
                             pid, createdDate)
         values (#{id}, #{content}, #{uid},

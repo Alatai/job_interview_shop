@@ -34,8 +34,13 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-    public List<OrderItem> findByOid(Integer id) {
-        return orderItemMapper.findByOid(id);
+    public List<OrderItem> findByOid(Integer oid) {
+        return orderItemMapper.findByOid(oid);
+    }
+
+    @Override
+    public List<OrderItem> findByUid(Integer uid) {
+        return orderItemMapper.findByUid(uid);
     }
 
     @Override

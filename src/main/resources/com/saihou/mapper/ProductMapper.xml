@@ -47,7 +47,7 @@
     </select>
 
     <!-- insert -->
-    <insert id="insert" parameterType="com.saihou.entity.Product">
+    <insert id="insert" parameterType="com.saihou.entity.Product" useGeneratedKeys="true" keyProperty="id">
         insert into Product (id, name, subtitle,
                              originalPrice, promotePrice, stock,
                              cid, createdDate)

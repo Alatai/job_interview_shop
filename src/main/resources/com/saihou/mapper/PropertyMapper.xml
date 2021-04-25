@@ -39,7 +39,7 @@
     </select>
 
     <!-- insert -->
-    <insert id="insert" parameterType="com.saihou.entity.Property">
+    <insert id="insert" parameterType="com.saihou.entity.Property" useGeneratedKeys="true" keyProperty="id">
         insert into Property (cid, name)
         values (#{cid}, #{name})
     </insert>

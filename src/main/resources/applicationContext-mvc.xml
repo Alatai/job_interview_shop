@@ -60,6 +60,14 @@
     <mvc:resources mapping="/image/detail/**" location="/image/detail/**"/>
     <mvc:resources mapping="/webfonts/**" location="/webfonts/**"/>
 
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/order/*"/>
+            <bean id="myInterceptor" class="com.saihou.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!-- 开启SpringMVC框架注解的支持 -->
     <mvc:annotation-driven/>
 </beans>

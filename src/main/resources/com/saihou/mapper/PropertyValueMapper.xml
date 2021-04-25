@@ -44,7 +44,7 @@
     </select>
 
     <!-- insert -->
-    <insert id="insert" parameterType="com.saihou.entity.PropertyValue">
+    <insert id="insert" parameterType="com.saihou.entity.PropertyValue" useGeneratedKeys="true" keyProperty="id">
         insert into PropertyValue (id, pid, ptid, value)
         values (#{id}, #{pid}, #{ptid}, #{value})
     </insert>

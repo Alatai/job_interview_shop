@@ -4,7 +4,7 @@
 
 <div class="ji-login">
     <div class="jil-panel">
-        <form action="login.do">
+        <form action="login.do" method="post">
             <div style="text-align: center;">账户登录</div>
 
             <div>

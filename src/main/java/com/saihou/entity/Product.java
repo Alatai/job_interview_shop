@@ -32,6 +32,14 @@ public class Product implements Serializable {
 
     private List<ProductImage> productImages;
 
+    private List<ProductImage> singleImages;
+
+    private List<ProductImage> detailImages;
+
+    private Integer saleCount;
+
+    private Integer reviewCount;
+
     public Integer getId() {
         return id;
     }
@@ -110,6 +118,38 @@ public class Product implements Serializable {
 
     public void setProductImages(List<ProductImage> productImages) {
         this.productImages = productImages;
+    }
+
+    public Integer getSaleCount() {
+        return saleCount;
+    }
+
+    public void setSaleCount(Integer saleCount) {
+        this.saleCount = saleCount;
+    }
+
+    public Integer getReviewCount() {
+        return reviewCount;
+    }
+
+    public void setReviewCount(Integer reviewCount) {
+        this.reviewCount = reviewCount;
+    }
+
+    public List<ProductImage> getSingleImages() {
+        return singleImages;
+    }
+
+    public void setSingleImages(List<ProductImage> singleImages) {
+        this.singleImages = singleImages;
+    }
+
+    public List<ProductImage> getDetailImages() {
+        return detailImages;
+    }
+
+    public void setDetailImages(List<ProductImage> detailImages) {
+        this.detailImages = detailImages;
     }
 
     @Override

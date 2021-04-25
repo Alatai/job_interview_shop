@@ -52,7 +52,7 @@
     </delete>
 
     <!-- insert -->
-    <insert id="insert" parameterType="com.saihou.entity.ProductImage">
+    <insert id="insert" parameterType="com.saihou.entity.ProductImage" useGeneratedKeys="true" keyProperty="id">
         insert into ProductImage (id, pid, type, name)
         values (#{id}, #{pid}, #{type}, #{name})
     </insert>

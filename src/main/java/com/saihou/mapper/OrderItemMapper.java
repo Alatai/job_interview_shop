@@ -18,7 +18,9 @@ public interface OrderItemMapper {
 
     OrderItem findById(Integer id);
 
-    List<OrderItem> findByOid(Integer id);
+    List<OrderItem> findByOid(Integer oid);
+
+    List<OrderItem> findByUid(Integer uid);
 
     int insert(OrderItem orderItem);
 
