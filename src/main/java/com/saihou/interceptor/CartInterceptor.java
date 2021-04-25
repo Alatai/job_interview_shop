@@ -18,7 +18,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/25
  */
-public class OtherInterceptor implements HandlerInterceptor {
+public class CartInterceptor implements HandlerInterceptor {
 
     @Autowired
     private OrderItemService orderItemService;

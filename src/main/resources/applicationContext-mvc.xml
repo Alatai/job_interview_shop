@@ -72,7 +72,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/*"/>
             <mvc:mapping path="/*/*"/>
-            <bean id="otherInterceptor" class="com.saihou.interceptor.OtherInterceptor"/>
+            <bean id="cartInterceptor" class="com.saihou.interceptor.CartInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
