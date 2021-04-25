@@ -59,6 +59,8 @@
                                 $('#add2CartBtn').css("background-color", "lightgray");
                                 $('#add2CartBtn').css("border-color", "lightgray");
                                 $('#add2CartBtn').css("color", "black");
+
+                                $("#cartNum").html(${Session["cartNum"]} + Number(num));
                             }
                         }
                     });

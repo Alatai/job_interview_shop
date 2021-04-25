@@ -62,9 +62,17 @@
 
     <!-- 拦截器 -->
     <mvc:interceptors>
+        <!-- login interceptor -->
         <mvc:interceptor>
             <mvc:mapping path="/order/*"/>
-            <bean id="myInterceptor" class="com.saihou.interceptor.LoginInterceptor"/>
+            <bean id="loginInterceptor" class="com.saihou.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+
+        <!-- cart number -->
+        <mvc:interceptor>
+            <mvc:mapping path="/*"/>
+            <mvc:mapping path="/*/*"/>
+            <bean id="otherInterceptor" class="com.saihou.interceptor.OtherInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
