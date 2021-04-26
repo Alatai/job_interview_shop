@@ -1,6 +1,7 @@
 package com.saihou.service;
 
 import com.saihou.entity.Order;
+import com.saihou.entity.OrderItem;
 
 import java.util.List;
 
@@ -30,4 +31,9 @@ public interface OrderService {
     int delete(Long id);
 
     void deliver(Integer id);
+
+    /**
+     * オーダーの生成、状態付け（waitPay）
+     */
+    Order createOrder(Order order, List<OrderItem> orderItems);
 }

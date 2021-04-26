@@ -36,9 +36,7 @@ public class CartInterceptor implements HandlerInterceptor {
         if (user != null) {
             List<OrderItem> orderItems = orderItemService.findByUid(user.getId());
 
-            for (OrderItem orderItem : orderItems) {
-                cartNum += orderItem.getNumber();
-            }
+            cartNum = orderItems.size();
         }
 
         session.setAttribute("cartNum", cartNum);

@@ -51,7 +51,7 @@
         insert into Orders (id, orderCode, address, postCode, receiver, phoneNumber, remark, createdDate, paidDate,
                             deliveredDate, confirmedDate, uid, status)
         values (#{id}, #{orderCode}, #{address}, #{postCode}, #{receiver}, #{phoneNumber}, #{remark}, #{createdDate},
-                #{paidDate}, #{deleverdDate}, #{confirmedDate}, #{uid}, #{satus})
+                #{paidDate}, #{deliveredDate}, #{confirmedDate}, #{uid}, #{status})
     </insert>
 
     <!-- update -->

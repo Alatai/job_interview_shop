@@ -13,9 +13,8 @@
     <link rel="stylesheet" href="http://localhost:8080/jishop/css/shop.css" type="text/css">
     <!-- fix favicon -->
     <link rel="shortcut icon" href="#">
-    <script type="text/javascript" src="http://localhost:8080/jishop/js/jquery-3.5.1.min.js"></script>
     <!-- bootstrap js -->
-    <script type="text/javascript" src="http://localhost:8080/jishop/js/shop.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/jishop/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="http://localhost:8080/jishop/js/bootstrap.min.js"></script>
 
     <title>${title}</title>

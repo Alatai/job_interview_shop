@@ -15,6 +15,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/18 15:41
  */
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @Service("categoryService")
 public class CategoryServiceImpl implements CategoryService {
 

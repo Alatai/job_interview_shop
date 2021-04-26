@@ -18,13 +18,13 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/19
  */
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     @Qualifier("productMapper")
     private ProductMapper productMapper;
-
 
     @Override
     public List<Product> findAll() {

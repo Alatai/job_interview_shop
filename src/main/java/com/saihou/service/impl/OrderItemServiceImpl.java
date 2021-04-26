@@ -16,6 +16,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/20
  */
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @Service("orderItemService")
 public class OrderItemServiceImpl implements OrderItemService {
 
@@ -54,7 +55,7 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-    public int delete(Long id) {
+    public int delete(Integer id) {
         return orderItemMapper.delete(id);
     }
 

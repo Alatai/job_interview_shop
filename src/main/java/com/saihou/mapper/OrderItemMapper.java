@@ -26,5 +26,5 @@ public interface OrderItemMapper {
 
     int update(OrderItem orderItem);
 
-    int delete(Long id);
+    int delete(Integer id);
 }

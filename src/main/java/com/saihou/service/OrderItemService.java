@@ -25,7 +25,7 @@ public interface OrderItemService {
 
     int update(OrderItem orderItem);
 
-    int delete(Long id);
+    int delete(Integer id);
 
     /**
      * オーダー金額計算-list

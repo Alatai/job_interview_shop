@@ -98,6 +98,7 @@ button, input, textarea, select, a {
     height: 220px;
     background-color: #000;
 }
+
 /* ji-footer end */
 
 /* ji-search begin */
@@ -657,7 +658,7 @@ button, input, textarea, select, a {
 /* product-panel end */
 
 /* ji-account begin */
-.ji-account .ji-address, .ja-confirm {
+.ji-order .ji-address, .ja-confirm {
     margin: 100px auto 20px;
     max-width: 1013px;
 }
@@ -695,23 +696,23 @@ button, input, textarea, select, a {
     border: 1px solid #AFAFAF;
 }
 
-.ji-account table {
+.ji-order table {
     width: 100%;
     border-collapse: separate;
     font-size: 12px;
 }
 
-.ji-account .ja-row td {
+.ji-order .ja-row td {
     height: 3px;
     background-color: #b2d1ff;
     border-right: 2px solid #fff;
 }
 
-.ji-account .ad-info {
+.ji-order .ad-info {
     padding: 10px 0;
 }
 
-.ji-account .ji-column {
+.ji-order .ji-column {
     text-align: center;
     color: #999;
 }
@@ -761,7 +762,7 @@ button, input, textarea, select, a {
     color: #C40000 !important;
 }
 
-.ji-account button {
+.ji-order input[type="submit"] {
     float: right;
     display: inline-block;
     width: 180px;
@@ -789,7 +790,7 @@ button, input, textarea, select, a {
     margin-right: 3px;
     font-weight: bold;
     font-size: 14px;
-    color: #C40000;
+    color: #f40;
 }
 
 .ji-cart .jic-btn {
@@ -841,6 +842,11 @@ button, input, textarea, select, a {
     width: 100%;
 }
 
+.jic-list th input {
+    position: relative;
+    top: 2px;
+}
+
 .jic-list thead th {
     padding: 20px 20px;
     font-weight: normal;
@@ -870,7 +876,7 @@ button, input, textarea, select, a {
 .jic-pp {
     font-weight: bold;
     font-size: 14px;
-    color: #c40000;
+    color: #f40;
 }
 
 .jic-list a {
@@ -881,4 +887,50 @@ button, input, textarea, select, a {
     width: 30px;
     text-align: center;
 }
+
 /* ji-cart end */
+
+/* ji-pay begin */
+.ji-pay {
+    margin-top: 200px;
+    text-align: center;
+}
+
+.ji-pay form {
+    width: 350px;
+    margin: 0 auto;
+}
+
+.ji-pay div {
+    width: 350px;
+    margin: 20px 0;
+}
+
+.ji-pay div span:first-child {
+    position: relative;
+    right: 10px;
+}
+
+.ji-pay div .jip-amount {
+    display: inline-block;
+    width: 175px;
+    position: relative;
+    left: -20px;
+    margin-left: 5px;
+    margin-right: 3px;
+    font-weight: bold;
+    color: #f40;
+}
+
+.ji-pay button {
+    display: block;
+    width: 170px;
+    height: 36px;
+    margin: 10px auto 0;
+    border-radius: 2px;
+    background-color: #f40;
+    border-width: 0;
+    color: white;
+}
+
+/* ji-pay end */

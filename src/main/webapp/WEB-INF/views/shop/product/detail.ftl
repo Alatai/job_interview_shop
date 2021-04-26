@@ -7,7 +7,7 @@
 
         // 購入数追加
         $('#purchaseNum').keyup(function () {
-            let num = $('#purchaseNum').val();
+            let num = $(this).val();
             num = parseInt(num);
 
             if (isNaN(num))
@@ -17,7 +17,7 @@
             if (num > stock)
                 num = stock;
 
-            $('#purchaseNum').val(num);
+            $(this).val(num);
         });
 
         // 追加click
@@ -60,7 +60,7 @@
                                 $('#add2CartBtn').css("border-color", "lightgray");
                                 $('#add2CartBtn').css("color", "black");
 
-                                $("#cartNum").html(${Session["cartNum"]} + Number(num));
+                                $("#cartNum").html(${Session["cartNum"]} + 1);
                             }
                         }
                     });
@@ -102,7 +102,7 @@
                     } else {
                         console.log('error');
                     }
-                },
+                }
             });
 
             return true;
@@ -114,7 +114,7 @@
     <div class="ji-product">
         <div class="pd-img clear-fix">
             <img style="width: 400px;"
-                 src="http://localhost:8080/jishop/image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>"
+                 src="../image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>"
                  alt="暂无图片">
         </div>
 

@@ -17,6 +17,7 @@ import java.util.Map;
  * @author saihou
  * @date 2021/04/22
  */
+@SuppressWarnings({"SpringMVCViewInspection", "SpringJavaAutowiredFieldsWarningInspection"})
 @Controller("shopUserController")
 @RequestMapping("/user")
 public class UserController {

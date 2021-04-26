@@ -16,6 +16,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/19
  */
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @Service("productImageService")
 public class ProductImageServiceImpl implements ProductImageService {
 

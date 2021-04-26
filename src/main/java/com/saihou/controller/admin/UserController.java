@@ -17,6 +17,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/20
  */
+@SuppressWarnings({"SpringMVCViewInspection", "SpringJavaAutowiredFieldsWarningInspection"})
 @Controller("userController")
 @RequestMapping("/admin/user")
 public class UserController {

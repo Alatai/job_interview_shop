@@ -15,6 +15,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/19
  */
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @Service("propertyService")
 public class PropertyServiceImpl implements PropertyService {
 

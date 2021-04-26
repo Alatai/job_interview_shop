@@ -17,6 +17,7 @@ import java.util.List;
  * @version 1.0
  * @date 2021/04/20 14:36
  */
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @Service("propertyValueService")
 public class PropertyValueServiceImpl implements PropertyValueService {
 

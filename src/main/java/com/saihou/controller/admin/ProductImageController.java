@@ -25,6 +25,7 @@ import java.util.UUID;
  * @author saihou
  * @date 2021/04/19
  */
+@SuppressWarnings({"SpringMVCViewInspection", "SpringJavaAutowiredFieldsWarningInspection"})
 @Controller("productImageController")
 @RequestMapping("/admin/image")
 public class ProductImageController {

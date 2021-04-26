@@ -6,14 +6,14 @@
 
 /* common begin */
 function deleteConfirm() {
-    window.location.href = $.trim($("#deleteUrl").val());
+    window.location.href = $.trim($('#deleteUrl').val());
 }
 
 /* common end */
 
 /* category begin */
 function openCategoryDeleteModal(id) {
-    let url = "http://localhost:8080/jishop/admin/category/delete?id=" + id;
+    let url = 'http://localhost:8080/jishop/admin/category/delete?id=' + id;
     $('#deleteUrl').val(url);
     $('#deleteCategory').modal();
 }
@@ -35,7 +35,7 @@ function openCategoryEditModal(id) {
 
 /* property begin */
 function openPropertyDeleteModal(id) {
-    let url = "http://localhost:8080/jishop/admin/property/delete?id=" + id;
+    let url = 'http://localhost:8080/jishop/admin/property/delete?id=' + id;
     $('#deleteUrl').val(url);
     $('#deleteProperty').modal();
 }
@@ -59,7 +59,7 @@ function openPropertyEditModal(id) {
 
 /* product begin */
 function openProductDeleteModal(id) {
-    let url = "http://localhost:8080/jishop/admin/product/delete?id=" + id;
+    let url = 'http://localhost:8080/jishop/admin/product/delete?id=' + id;
     $('#deleteUrl').val(url);
     $('#deleteProduct').modal();
 }
@@ -92,7 +92,7 @@ function openProductEditModal(id) {
 /* productImage begin */
 function openImageDeleteModal(id) {
     console.log(id);
-    let url = "http://localhost:8080/jishop/admin/image/delete?id=" + id;
+    let url = 'http://localhost:8080/jishop/admin/image/delete?id=' + id;
     $('#deleteUrl').val(url);
     $('#deleteImage').modal();
 }
@@ -114,8 +114,8 @@ function propertyEditConfirm() {
 
     $.ajax({
         url: 'update',
-        type: "POST",
-        contentType: "application/json;charset=UTF-8",
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
         data: JSON.stringify(data),
         success: function (ret) {
             $('#success').modal();

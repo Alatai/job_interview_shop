@@ -1,5 +1,6 @@
 package com.saihou.controller.shop;
 
+import com.saihou.entity.Order;
 import com.saihou.entity.OrderItem;
 import com.saihou.entity.Product;
 import com.saihou.entity.User;
@@ -14,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * オーダー
@@ -24,6 +23,7 @@ import java.util.Map;
  * @author saihou
  * @date 2021/04/24
  */
+@SuppressWarnings({"SpringMVCViewInspection", "SpringJavaAutowiredFieldsWarningInspection"})
 @Controller("shopOrderController")
 @RequestMapping("/order")
 public class OrderController {
@@ -56,10 +56,11 @@ public class OrderController {
             orderItems.add(orderItem);
         }
 
+        session.setAttribute("title", "オーダー");
         session.setAttribute("orderItems", orderItems);
         model.addAttribute("amount", amount);
 
-        return "/shop/order/account";
+        return "/shop/order/order";
     }
 
     /**
@@ -85,9 +86,85 @@ public class OrderController {
         User user = (User) session.getAttribute("user");
         List<OrderItem> orderItems = orderItemService.findByUid(user.getId());
 
+        model.addAttribute("title", "ショッピングカート");
         model.addAttribute("orderItems", orderItems);
 
         return "/shop/order/cart";
+    }
+
+    @ResponseBody
+    @RequestMapping("/updateCartItem")
+    public String updateCartItem(HttpSession session, @RequestBody Map<String, Integer> params) {
+        Integer id = params.get("id");
+        Integer num = params.get("num");
+        User user = (User) session.getAttribute("user");
+
+        if (user == null) {
+            return "fail";
+        }
+
+        OrderItem orderItem = orderItemService.findById(id);
+        orderItem.setNumber(num);
+
+        orderItemService.update(orderItem);
+
+        return "success";
+    }
+
+    @ResponseBody
+    @RequestMapping("/deleteCartItem")
+    public String deleteCartItem(HttpSession session, @RequestBody Map<String, Integer> params) {
+        Integer id = params.get("id");
+        User user = (User) session.getAttribute("user");
+
+        if (user == null) {
+            return "fail";
+        }
+
+        orderItemService.delete(id);
+
+        return "success";
+    }
+
+    /**
+     * オーダーの生成、状態付け（waitPay）
+     */
+    @SuppressWarnings("unchecked")
+    @RequestMapping("/createOrder")
+    public String createOrder(HttpSession session, Order order) {
+        System.out.println("into createOrder");
+
+        User user = (User) session.getAttribute("user");
+        List<OrderItem> orderItems = (List<OrderItem>) session.getAttribute("orderItems");
+
+        order.setUid(user.getId());
+        order = orderService.createOrder(order, orderItems);
+
+        return "redirect:/order/pay?id=" + order.getId() + "&amount=" + order.getAmount();
+    }
+
+    /**
+     * 支払いページ
+     */
+    @RequestMapping("/pay")
+    public String doPay(Model model, Integer id, Float amount) {
+        Order order = orderService.findById(id);
+        order.setAmount(amount);
+
+        model.addAttribute("title", "支払い");
+        model.addAttribute("order", order);
+
+        return "/shop/order/pay";
+    }
+
+    /**
+     * 既に支払っている、状態変更（waitDeliver）
+     */
+    @RequestMapping("/hasPaid")
+    public String hasPaid(Model model) {
+
+
+        return "/shop/order/hasPaid";
     }
 
     /**

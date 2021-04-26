@@ -15,6 +15,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/23
  */
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @Service("reviewService")
 public class ReviewServiceImpl implements ReviewService {
 
