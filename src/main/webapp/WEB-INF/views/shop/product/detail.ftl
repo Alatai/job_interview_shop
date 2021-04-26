@@ -115,7 +115,7 @@
         <div class="pd-img clear-fix">
             <img style="width: 400px;"
                  src="../image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>"
-                 alt="暂无图片">
+                 alt="写真なし">
         </div>
 
         <div class="pd-info">
@@ -125,25 +125,25 @@
             <div class="pd-price">
                 <div class="price-panel">
                     <div class="op-price">
-                        <span class="op-desc">价格</span>
+                        <span class="op-desc">原価</span>
                         <span class="op-symbol">￥</span>
                         <span class="op-num">${product.originalPrice}</span>
                     </div>
 
                     <div class="pro-price">
-                        <span class="pro-desc">促销价</span>
+                        <span class="pro-desc">今の値段</span>
                         <span class="pro-symbol">￥</span>
                         <span class="pro-num">${product.promotePrice}</span>
                     </div>
                 </div>
 
                 <div class="sale-review">
-                    <div>销量 <span> ${product.saleCount}</span></div>
-                    <div>累计评价 <span> ${product.reviewCount}</span></div>
+                    <div>販売量 <span> ${product.saleCount}</span></div>
+                    <div>評価数 <span> ${product.reviewCount}</span></div>
                 </div>
 
                 <div class="pd-num">
-                    <span>数量</span>
+                    <span>数</span>
                     <span>
                     <span class="pn-setting">
                         <input id="purchaseNum" value="1" type="text" placeholder="1">
@@ -160,7 +160,7 @@
                         </a>
                     </span>
                 件</span>
-                    <span>库存${product.stock}件</span>
+                    <span>在庫${product.stock}件</span>
                 </div>
 
                 <div class="pd-buy">
@@ -179,12 +179,12 @@
 
     <div class="p-details">
         <div class="pd-top">
-            <a class="detail" href="#">商品详情</a>
-            <a class="review" href="#">累计评价 <span>${product.reviewCount}</span></a>
+            <a class="detail" href="#">商品詳細</a>
+            <a class="review" href="#">評価数 <span>${product.reviewCount}</span></a>
         </div>
 
         <div class="pd-property">
-            <div>产品参数</div>
+            <div>商品属性</div>
             <div class="pp-list clear-fix">
                 <#list propertyValues as propertyValue>
                     <span>${propertyValue.property.name}: ${propertyValue.value}</span>

@@ -2,9 +2,11 @@ package com.saihou.service.impl;
 
 import com.saihou.entity.Order;
 import com.saihou.entity.OrderItem;
+import com.saihou.entity.Product;
 import com.saihou.mapper.OrderMapper;
 import com.saihou.service.OrderItemService;
 import com.saihou.service.OrderService;
+import com.saihou.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,8 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
     @Autowired
     private OrderItemService orderItemService;
+    @Autowired
+    private ProductService productService;
 
     @Override
     public List<Order> findAll() {
@@ -71,9 +75,7 @@ public class OrderServiceImpl implements OrderService {
         order.setCreatedDate(new Date());
         order.setStatus(OrderService.WAIT_PAY);
 
-        System.out.println("insert order begin ...");
         insert(order);
-        System.out.println("insert order end ...");
 
         float amount = 0;
 
@@ -88,5 +90,29 @@ public class OrderServiceImpl implements OrderService {
         order.setAmount(amount);
 
         return order;
+    }
+
+    @Override
+    public void hasPaid(Integer id) {
+        Order order = findById(id);
+        order.setStatus(WAIT_DELIVER);
+        order.setPaidDate(new Date());
+
+        // 在庫数更新
+        List<OrderItem> orderItems = orderItemService.findByOid(id);
+
+        for (OrderItem orderItem : orderItems) {
+            Product product = orderItem.getProduct();
+
+            Integer stock = product.getStock();
+            stock -= orderItem.getNumber();
+
+            System.out.println("stock: " + stock);
+
+            product.setStock(stock);
+            productService.update(product);
+        }
+
+        update(order);
     }
 }

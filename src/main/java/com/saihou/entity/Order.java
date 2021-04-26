@@ -189,46 +189,27 @@ public class Order implements Serializable {
 
         switch (status) {
             case OrderService.WAIT_PAY:
-                desc = "待付款";
+                desc = "支払い待ち";
                 break;
             case OrderService.WAIT_DELIVER:
-                desc = "待发货";
+                desc = "出荷待ち";
                 break;
             case OrderService.WAIT_CONFIRM:
-                desc = "待收货";
+                desc = "受け取り待ち";
                 break;
             case OrderService.WAIT_REVIEW:
-                desc = "等评价";
+                desc = "コメント待ち";
                 break;
             case OrderService.FINISHED:
                 desc = "完成";
                 break;
             case OrderService.DELETED:
-                desc = "刪除";
+                desc = "削除";
                 break;
             default:
-                desc = "未知";
+                desc = "エラー";
         }
 
         return desc;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", orderCode='" + orderCode + '\'' +
-                ", address='" + address + '\'' +
-                ", postCode='" + postCode + '\'' +
-                ", receiver='" + receiver + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", remark='" + remark + '\'' +
-                ", createdDate=" + createdDate +
-                ", paidDate=" + paidDate +
-                ", deliveredDate=" + deliveredDate +
-                ", confirmedDate=" + confirmedDate +
-                ", uid=" + uid +
-                ", status='" + status + '\'' +
-                '}';
     }
 }

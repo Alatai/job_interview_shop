@@ -759,7 +759,7 @@ button, input, textarea, select, a {
     border-bottom: 1px dotted #F2F6FF;
     font-size: 22px;
     font-weight: bold;
-    color: #C40000 !important;
+    color: #f40;
 }
 
 .ji-order input[type="submit"] {
@@ -768,8 +768,8 @@ button, input, textarea, select, a {
     width: 180px;
     height: 40px;
     margin: 0 10px;
-    border: 1px solid #C40000;
-    background-color: #C40000;
+    border: 1px solid #f40;
+    background-color: #f40;
     line-height: 40px;
     text-align: center;
     font-weight: 700;
@@ -896,7 +896,7 @@ button, input, textarea, select, a {
     text-align: center;
 }
 
-.ji-pay form {
+.ji-pay div:first-child {
     width: 350px;
     margin: 0 auto;
 }
@@ -934,3 +934,11 @@ button, input, textarea, select, a {
 }
 
 /* ji-pay end */
+
+/* ji-paid begin */
+.ji-paid {
+    margin-top: 200px;
+    text-align: center;
+}
+
+/* ji-paid end */

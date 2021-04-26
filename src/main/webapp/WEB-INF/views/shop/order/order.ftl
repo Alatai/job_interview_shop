@@ -9,42 +9,47 @@
 <div class="ji-order">
     <form id="orderForm" action="createOrder" method="post" onsubmit="return doSubmit()">
         <div class="ji-address">
-            <div class="ja-tip">输入收获地址</div>
+            <div class="ja-tip">住所を入力して下さい</div>
 
             <div class="ja-detail">
                 <div>
-                    <label for="address">详细地址<span>*</span></label>
+                    <label for="address">住所<span>*</span></label>
                     <textarea id="address" name="address"></textarea>
                 </div>
 
                 <div>
-                    <label for="postCode">邮政编码<span>*</span></label>
+                    <label for="postCode">郵便番号<span>*</span></label>
                     <input id="postCode" name="postCode" type="text">
                 </div>
 
                 <div>
-                    <label for="receiver">收货人姓名<span>*</span></label>
+                    <label for="receiver">受取人<span>*</span></label>
                     <input id="receiver" name="receiver" type="text">
                 </div>
 
                 <div>
-                    <label for="phoneNumber">手机号码<span>*</span></label>
+                    <label for="phoneNumber">電話番号<span>*</span></label>
                     <input id="phoneNumber" name="phoneNumber" type="text">
+                </div>
+
+                <div>
+                    <label for="remark">備考欄</label>
+                    <textarea id="remark" name="remark"></textarea>
                 </div>
             </div>
         </div>
 
         <div class="ja-confirm" style="margin-top: 50px;">
-            <div class="ja-tip">确认订单信息</div>
+            <div class="ja-tip">オーダー確認</div>
 
             <table>
                 <thead>
                 <tr>
                     <th colspan="2">JI SHOP</th>
-                    <th>单价</th>
-                    <th>数量</th>
-                    <th>小计</th>
-                    <th>配送方式</th>
+                    <th>単価</th>
+                    <th>数</th>
+                    <th>金額</th>
+                    <th>配達方法</th>
                 </tr>
                 <tr class="ja-row">
                     <td colspan="2"></td>
@@ -78,9 +83,9 @@
                         <td style="text-align: center;">
                             <label for="deliverType" class=""></label>
                             <input id="deliverType" type="radio" checked="checked" value="">
-                            普通配送
+                            普通
                             <select class="">
-                                <option>快递 免邮费</option>
+                                <option>普通 無料</option>
                             </select>
                         </td>
                     </tr>
@@ -89,7 +94,7 @@
             </table>
 
             <div class="jo-sum clear-fix">
-                <span class="float-right">店铺合计(含运费): ￥${amount?string("0.00")}</span>
+                <span class="float-right">合計  （運賃除く）: ￥${amount?string("0.00")}</span>
             </div>
 
             <div class="jo-total clear-fix">
@@ -100,7 +105,7 @@
             </div>
 
             <div class="">
-                <input type="submit" class="float-right" value="提交订单"/>
+                <input type="submit" class="float-right" value="オーダー提出"/>
             </div>
         </div>
     </form>

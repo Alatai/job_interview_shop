@@ -36,4 +36,9 @@ public interface OrderService {
      * オーダーの生成、状態付け（waitPay）
      */
     Order createOrder(Order order, List<OrderItem> orderItems);
+
+    /**
+     * 支払い成功、状態変更（waitDeliver)
+     */
+    void hasPaid(Integer id);
 }

@@ -3,23 +3,23 @@
 
 
 <div class="ji-container ji-pay">
-    <form action="#">
+    <div>
         <div>
-            <span>应付金额：</span>
+            <span>未払い金額：</span>
             <span class="jip-amount">￥${order.amount?string("0.00")}</span>
         </div>
 
         <div>
-            <label for="amount">付款：</label>
+            <label for="amount">金額：</label>
             <input id="amount" type="text">
         </div>
 
         <div>
-            <a href="#">
-                <button>确认支付</button>
+            <a href="hasPaid?id=${order.id}">
+                <button>支払い確認</button>
             </a>
         </div>
-    </form>
+    </div>
 </div>
 
 

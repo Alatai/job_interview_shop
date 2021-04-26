@@ -42,29 +42,34 @@
                     <td>${order.user.name}</td>
                     <td>${order.createdDate?string("yyyy-MM-dd HH:mm:ss")}</td>
                     <td>${order.paidDate?string("yyyy-MM-dd HH:mm:ss")}</td>
-                    <td>${order.deliveredDate?string("yyyy-MM-dd HH:mm:ss")}</td>
-                    <td>${order.confirmedDate?string("yyyy-MM-dd HH:mm:ss")}</td>
+                    <td><#if order.deliverdDate??>${order.deliveredDate?string("yyyy-MM-dd HH:mm:ss")}</#if> </td>
+                    <td><#if order.confirmdDate??>${order.confirmedDate?string("yyyy-MM-dd HH:mm:ss")}</#if></td>
                     <td>
-                        <a href="#" onclick="showItems()"><i class="fas fa-tasks"></i></a> | <a href="/jishop/admin/order/deliver?id=${order.id}"><i class="fas fa-truck"></i></a>
+                        <a href="#" onclick="showItems()"><i class="fas fa-tasks"></i></a> | <a
+                                href="/jishop/admin/order/deliver?id=${order.id}"><i class="fas fa-truck"></i></a>
                     </td>
                 </tr>
-
-                <!-- OrderItem -->
-                <tr>
-                    <table id="orderItems" class="table col-10 item-table">
-                        <tr>
+            </#list>
+            <!-- OrderItem -->
+            <tr>
+                <table id="orderItems" class="table col-10 item-table">
+                    <tr>
+                        <#list orders as order>
                             <#list order.orderItems as orderItem>
                                 <td>
-                                    <img style="width: 50px;" src="../../image/single/<#if orderItem.product.productImages[0].type =='type_single'>${orderItem.product.productImages[0].name}</#if>" alt="暂无图片">
+                                    <img style="width: 50px;"
+                                         src="../../image/single/<#if orderItem.product.productImages[0].type =='type_single'>${orderItem.product.productImages[0].name}</#if>"
+                                         alt="暂无图片">
                                 </td>
                                 <td>${orderItem.product.name}</td>
                                 <td>数 ${orderItem.number} 個</td>
                                 <td>単価 ￥${orderItem.product.promotePrice}</td>
                             </#list>
-                        </tr>
-                    </table>
-                </tr>
-            </#list>
+                        </#list>
+                    </tr>
+                </table>
+            </tr>
+
             </tbody>
         </table>
     </div>

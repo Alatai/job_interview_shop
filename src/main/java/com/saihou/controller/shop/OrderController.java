@@ -161,8 +161,18 @@ public class OrderController {
      * 既に支払っている、状態変更（waitDeliver）
      */
     @RequestMapping("/hasPaid")
-    public String hasPaid(Model model) {
+    public String hasPaid(Integer id) {
+        orderService.hasPaid(id);
 
+        return "redirect:/order/paySuccess";
+    }
+
+    /**
+     * 支払い成功ページに移動
+     */
+    @RequestMapping("/paySuccess")
+    public String paySuccess(Model model){
+        model.addAttribute("title", "支払い成功");
 
         return "/shop/order/hasPaid";
     }

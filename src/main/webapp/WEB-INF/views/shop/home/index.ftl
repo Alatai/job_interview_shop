@@ -15,10 +15,10 @@
                         <div class="p-item">
                             <a href="product/detail?id=${product.id}">
                                 <img src="../jishop/image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>"
-                                     alt="暂无图片">
+                                     alt="写真なし">
                             </a>
                             <a class="pd-link" href="#">
-                                <span class="p-desc">[热销]${product.subtitle}</span>
+                                <span class="p-desc">[人気]${product.subtitle}</span>
                             </a>
                             <span class="p-price">${product.promotePrice}</span>
                         </div>

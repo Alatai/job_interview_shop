@@ -59,15 +59,4 @@ public class PropertyValue implements Serializable {
     public void setProperty(Property property) {
         this.property = property;
     }
-
-    @Override
-    public String toString() {
-        return "PropertyValue{" +
-                "id=" + id +
-                ", pid=" + pid +
-                ", ptid=" + ptid +
-                ", value='" + value + '\'' +
-                '}';
-    }
-
 }
