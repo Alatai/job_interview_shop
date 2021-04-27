@@ -5,6 +5,12 @@
     $(function () {
         let stock = ${product.stock};
 
+        // 在庫切り
+        if (stock === 0) {
+            $('#add2CartBtn').attr('disabled', 'disabled');
+            $('#buyCurrently').attr('disabled', 'disabled');
+        }
+
         // 購入数追加
         $('#purchaseNum').keyup(function () {
             let num = $(this).val();
@@ -39,7 +45,6 @@
         });
 
         // ショッピングカート
-        $('#add2CartBtn').removeAttr('disable');
         $('#add2Cart').click(function () {
             $.get('http://localhost:8080/jishop/user/checkLogin', function (ret) {
                 if ('success' === ret) {
@@ -55,7 +60,7 @@
                         success: function (ret) {
                             if ('success' === ret) {
                                 $('#add2CartBtn').html('追加しました');
-                                $('#add2CartBtn').attr('disable', 'disable');
+                                $('#add2CartBtn').attr('disabled', 'disabled');
                                 $('#add2CartBtn').css("background-color", "lightgray");
                                 $('#add2CartBtn').css("border-color", "lightgray");
                                 $('#add2CartBtn').css("color", "black");
@@ -70,7 +75,7 @@
             });
         });
 
-        // スク購入する
+        // すぐ購入する
         $('#buyCurrently').click(function () {
             $.get('http://localhost:8080/jishop/user/checkLogin', function (ret) {
                 if ('success' === ret) {
@@ -186,8 +191,8 @@
                 </div>
 
                 <div class="pd-buy">
-                    <a id="buyCurrently" href="#">
-                        <button id="buy" class="buy">今すく買う</button>
+                    <a href="#">
+                        <button id="buyCurrently" class="buy">今すく買う</button>
                     </a>
                     <a id="add2Cart" href="#">
                         <button id="add2CartBtn" class="cart">

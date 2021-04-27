@@ -9,10 +9,10 @@
             <span class="jip-amount">￥${order.amount?string("0.00")}</span>
         </div>
 
-        <div>
-            <label for="amount">金額：</label>
-            <input id="amount" type="text">
-        </div>
+        <!-- <div> -->
+            <!-- <label for="amount">金額：</label> -->
+            <!-- <input id="amount" type="text"> -->
+        <!-- </div> -->
 
         <div>
             <a href="hasPaid?id=${order.id}">

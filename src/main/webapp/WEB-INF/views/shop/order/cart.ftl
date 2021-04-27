@@ -66,7 +66,6 @@
 
         // 数を増加
         $('.increase').click(function () {
-            console.log(123);
             let id = $(this).data('id');
             let price = $(this).data('price');
             let stock = $('#stock' + id).val();
@@ -181,6 +180,8 @@
             contentType: 'application/json;charset=UTF-8',
             data: JSON.stringify({'id': id, 'num': num}),
             success: function (ret) {
+                location.reload();
+
                 if ('success' !== ret) {
                     location.href = 'http://localhost:8080/jishop/user/login';
                 }
