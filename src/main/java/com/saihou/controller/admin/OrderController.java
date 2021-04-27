@@ -43,6 +43,9 @@ public class OrderController {
         return "/admin/order/list";
     }
 
+    /**
+     * オーダー配達完成、状態変更（waitConfirm）
+     */
     @RequestMapping("/deliver")
     public String deliver(Integer id) {
         orderService.deliver(id);

@@ -188,16 +188,13 @@ public class OrderController {
     }
 
     /**
-     * オーダー完成、状態変更（finish）
+     * オーダー確認完成、状態変更（waitReview）
      */
-    @RequestMapping("")
-    public String confirmOrder(Model model, Integer id) {
-        Order order = orderService.confirmOrder(id);
+    @RequestMapping("/confirmOrder")
+    public String confirmOrder(Integer id) {
+        orderService.confirmOrder(id);
 
-        model.addAttribute("title", "オーダー完成");
-        model.addAttribute("order", order);
-
-        return "/shop/order/confirm";
+        return "redirect:/order/orders";
     }
 
     /**

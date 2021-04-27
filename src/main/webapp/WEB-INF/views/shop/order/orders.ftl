@@ -15,8 +15,6 @@
                 $('table[data-status="' + status + '"]').show();
             }
         });
-
-
     });
 </script>
 
@@ -62,9 +60,9 @@
                     </td>
                 </tr>
 
-                <tr class="jio-info">
-                    <#list order.orderItems as orderItem>
-                        <td class="info-td">
+                <#list order.orderItems as orderItem>
+                    <tr class="jio-info">
+                        <td style="width: 100px;" class="info-td">
                             <img style="width: 80px; height: 80px;"
                                  src="../image/single/<#if orderItem.product.productImages[0].type =='type_single'>${orderItem.product.productImages[0].name}</#if>"
                                  alt="写真なし">
@@ -79,36 +77,39 @@
                             <div class="jio-op">￥${orderItem.product.originalPrice?string("0.00")}</div>
                             <div class="jio-pp">￥${orderItem.product.promotePrice?string("0.00")}</div>
                         </td>
-                    </#list>
-                    <td style="width: 100px;" class="info-td info-part" rowspan="1">
-                        <span class="jio-num">${order.number}</span>
-                    </td>
-                    <td style="width: 120px;" class="info-td info-part" rowspan="1">
-                        <div class="">￥${order.amount}</div>
-                    </td>
-                    <td style="width: 100px;" class="info-td info-part">
-                        ${order.statusDesc}
-                    </td>
-                    <td style="width: 100px;" class="info-td info-part">
-                        <#if order.status == "waitReview" >
-                            <a href="../review/">
-                                <button>評価</button>
-                            </a>
-                        </#if>
+                        <td style="width: 100px; text-align: center;" class="info-td" rowspan="1">
+                            <span class="jio-num">${orderItem.number}</span>
+                        </td>
 
-                        <#if order.status == "waitPay" >
-                            <a href="pay?id=${order.id}&amount=${order.amount}">
-                                <button>支払い</button>
-                            </a>
-                        </#if>
+                        <#if orderItem_index < 1>
+                            <td style="width: 120px;" class="info-td info-part" rowspan="${order.orderItems?size}">
+                                <div class="">￥${order.amount?string("0.00")}</div>
+                            </td>
+                            <td style="width: 100px;" class="info-td info-part" rowspan="${order.orderItems?size}">
+                                ${order.statusDesc}
+                            </td>
+                            <td style="width: 100px;" class="info-td info-part" rowspan="${order.orderItems?size}">
+                                <#if order.status == "waitReview" >
+                                    <a href="../review/">
+                                        <button>評価</button>
+                                    </a>
+                                </#if>
 
-                        <#if order.status == "waitConfirm" >
-                            <a href="confirmOrder?id=${order.id}">
-                                <button>確認</button>
-                            </a>
+                                <#if order.status == "waitPay" >
+                                    <a href="pay?id=${order.id}&amount=${order.amount}">
+                                        <button>支払い</button>
+                                    </a>
+                                </#if>
+
+                                <#if order.status == "waitConfirm" >
+                                    <a href="confirmOrder?id=${order.id}">
+                                        <button>確認</button>
+                                    </a>
+                                </#if>
+                            </td>
                         </#if>
-                    </td>
-                </tr>
+                    </tr>
+                </#list>
                 </tbody>
             </table>
         </#list>

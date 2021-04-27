@@ -66,6 +66,7 @@
 
         // 数を増加
         $('.increase').click(function () {
+            console.log(123);
             let id = $(this).data('id');
             let price = $(this).data('price');
             let stock = $('#stock' + id).val();
