@@ -14,7 +14,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/21
  */
-@SuppressWarnings({"SpringMVCViewInspection", "SpringJavaAutowiredFieldsWarningInspection"})
+@SuppressWarnings({"SpringJavaAutowiredFieldsWarningInspection"})
 @Controller("indexController")
 @RequestMapping("/")
 public class IndexController {

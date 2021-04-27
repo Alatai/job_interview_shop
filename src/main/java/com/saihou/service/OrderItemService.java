@@ -2,6 +2,7 @@ package com.saihou.service;
 
 import com.saihou.entity.Order;
 import com.saihou.entity.OrderItem;
+import com.saihou.entity.User;
 
 import java.util.List;
 
@@ -36,4 +37,9 @@ public interface OrderItemService {
      * オーダー金額計算
      */
     void calculate(Order order);
+
+    /**
+     * この商品は既に追加しているかを確認する
+     */
+    int checkOrderItem(User user, Integer pid, Integer num);
 }

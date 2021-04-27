@@ -5,7 +5,7 @@ import java.util.Date;
 
 
 /**
- * 商品コメント
+ * 商品評価
  */
 public class Review implements Serializable {
 

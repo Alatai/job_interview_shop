@@ -44,6 +44,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<Order> findByUid(Integer id) {
+        return orderMapper.findByUid(id);
+    }
+
+    @Override
     public int insert(Order order) {
         return orderMapper.insert(order);
     }
@@ -54,26 +59,17 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public int delete(Long id) {
+    public int delete(Integer id) {
         return orderMapper.delete(id);
-    }
-
-    @Override
-    public void deliver(Integer id) {
-        Order order = orderMapper.findById(id);
-        order.setDeliveredDate(new Date());
-        order.setStatus(WAIT_CONFIRM);
-
-        orderMapper.update(order);
     }
 
     @Override
     public Order createOrder(Order order, List<OrderItem> orderItems) {
         String orderCode = UUID.randomUUID().toString().replace("-", "");
 
+        order.setStatus(WAIT_PAY);
         order.setOrderCode(orderCode);
         order.setCreatedDate(new Date());
-        order.setStatus(OrderService.WAIT_PAY);
 
         insert(order);
 
@@ -112,6 +108,42 @@ public class OrderServiceImpl implements OrderService {
             product.setStock(stock);
             productService.update(product);
         }
+
+        update(order);
+    }
+
+    @Override
+    public void deliver(Integer id) {
+        Order order = orderMapper.findById(id);
+        order.setStatus(WAIT_CONFIRM);
+        order.setDeliveredDate(new Date());
+
+        update(order);
+    }
+
+    @Override
+    public Order confirmOrder(Integer id) {
+        Order order = findById(id);
+        order.setStatus(WAIT_REVIEW);
+        order.setConfirmedDate(new Date());
+
+        update(order);
+
+        return order;
+    }
+
+    @Override
+    public void deleteOrder(Integer id) {
+        Order order = findById(id);
+        order.setStatus(DELETED);
+
+        update(order);
+    }
+
+    @Override
+    public void hasReviewed(Integer id) {
+        Order order = findById(id);
+        order.setStatus(FINISHED);
 
         update(order);
     }

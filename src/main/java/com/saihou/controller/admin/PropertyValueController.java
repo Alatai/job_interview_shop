@@ -19,7 +19,7 @@ import java.util.List;
  * @author saihou
  * @date 2021/04/20
  */
-@SuppressWarnings({"SpringMVCViewInspection", "SpringJavaAutowiredFieldsWarningInspection"})
+@SuppressWarnings({"SpringJavaAutowiredFieldsWarningInspection"})
 @Controller("propertyValueController")
 @RequestMapping("/admin/pvalue")
 public class PropertyValueController {

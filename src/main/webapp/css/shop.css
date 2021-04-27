@@ -582,6 +582,17 @@ button, input, textarea, select, a {
 }
 
 .pd-top .detail {
+    padding: 0 20px;
+    color: #333;
+}
+
+.pd-top .review {
+    padding: 0 20px;
+    border-right: 1px dotted #d2d2d2;
+    color: #333;
+}
+
+.pd-top .selected {
     position: relative;
     display: inline-block;
     width: 90px;
@@ -593,10 +604,11 @@ button, input, textarea, select, a {
     color: #b10000;
 }
 
-.pd-top .detail:before {
+.pd-top .selected:before {
     display: block;
     position: absolute;
     top: -1px;
+    left: 0;
     width: 90px;
     height: 0;
     margin-left: -1px;
@@ -606,7 +618,7 @@ button, input, textarea, select, a {
     content: "";
 }
 
-.pd-top .detail:after {
+.pd-top .selected:after {
     display: block;
     position: absolute;
     left: 50%;
@@ -618,12 +630,6 @@ button, input, textarea, select, a {
     border-width: 5px;
     border-color: #b00000 transparent transparent;
     content: "";
-}
-
-.pd-top .review {
-    padding: 0 20px;
-    border-right: 1px dotted #d2d2d2;
-    color: #333;
 }
 
 .review span {
@@ -653,6 +659,38 @@ button, input, textarea, select, a {
     display: block;
     width: 790px;
     margin: 20px 0;
+}
+
+.jir-content {
+    padding-top: 50px;
+}
+
+.jir-item {
+    margin: 10px 0;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.jir-item .jir-info {
+    float: left;
+    display: inline-block;
+    width: 80%;
+    margin: 5px 20px;
+    color: #333;
+}
+
+.jir-item .jir-date {
+    margin: 15px 0 0 0;
+    color: #ccc;
+}
+
+.jir-item .jir-user {
+    margin: 5px 20px;
+    padding: 20px 0;
+    color: #404040;
+}
+
+.jir-user span {
+    color: #999;
 }
 
 /* product-panel end */
@@ -942,3 +980,130 @@ button, input, textarea, select, a {
 }
 
 /* ji-paid end */
+
+/* ji-orders begin */
+.ji-orders {
+    max-width: 1013px;
+    margin: 100px auto 10px;
+}
+
+.ji-orders .jio-type div {
+    float: left;
+    border-bottom: 2px solid #e8e8e8;
+}
+
+.ji-orders .jio-type a {
+    float: left;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.ji-orders .jio-type a:hover {
+    color: #f40;
+    text-decoration: none;
+}
+
+.ji-orders .jio-active {
+    border-bottom: 2px solid #f40;
+}
+
+.ji-orders .jio-active a {
+    color: #f40;
+}
+
+.ji-orders .jio-last {
+    float: none !important;
+    height: 35px;
+    border-bottom: 2px solid #e8e8e8;
+    overflow: hidden;
+}
+
+.jio-list .jil-title {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #e8e8e8;
+    background-color: #f5f5f5;
+    text-align: center;
+    font-size: 12px;
+}
+
+.jio-list .jil-title td {
+    padding: 12px 0;
+}
+
+.ji-orders .jio-table {
+    width: 100%;
+    margin: 20px 0;
+    border: 2px solid #ececec;
+    font-size: 12px;
+}
+
+.jio-orders .jio-table:hover {
+    border: 2px solid #aaa !important;
+}
+
+.jio-item td {
+    padding: 8px 10px;
+}
+
+.jio-item .jio-first {
+    background-color: #f1f1f1;
+}
+
+.jio-item .jio-delete {
+    text-align: right;
+}
+
+.jio-item .jio-delete i {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #999;
+}
+
+.info-td .jio-link {
+    position: relative;
+    height: 80px;
+    padding-top: 30px;
+}
+
+.jio-link a {
+    color: #999;
+}
+
+.jio-link img {
+    display: block;
+}
+
+.info-td .jio-op {
+    font-size: 14px;
+    color: #999;
+}
+
+.info-td .jio-pp {
+    font-size: 14px;
+    color: #3c3c3c;
+}
+
+.info-td .jio-num {
+    text-align: center;
+}
+
+.info-part {
+    border: solid 1px #ececec;
+    text-align: center;
+}
+
+.info-td button {
+    background-color: #66B6FF;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border-width: 0;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+}
+
+/* ji-orders end */

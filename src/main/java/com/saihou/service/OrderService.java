@@ -24,13 +24,13 @@ public interface OrderService {
 
     Order findById(Integer id);
 
+    List<Order> findByUid(Integer id);
+
     int insert(Order order);
 
     int update(Order order);
 
-    int delete(Long id);
-
-    void deliver(Integer id);
+    int delete(Integer id);
 
     /**
      * オーダーの生成、状態付け（waitPay）
@@ -41,4 +41,24 @@ public interface OrderService {
      * 支払い成功、状態変更（waitDeliver)
      */
     void hasPaid(Integer id);
+
+    /**
+     * オーダー配達完成、状態変更（waitConfirm）
+     */
+    void deliver(Integer id);
+
+    /**
+     * オーダー確認完成、状態変更（waitReview）
+     */
+    Order confirmOrder(Integer id);
+
+    /**
+     * オーダー削除、状態変更（delete）
+     */
+    void deleteOrder(Integer id);
+
+    /**
+     * オーダー評価完成、状態変更（finish）
+     */
+    void hasReviewed(Integer id);
 }

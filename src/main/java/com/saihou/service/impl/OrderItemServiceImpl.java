@@ -2,8 +2,11 @@ package com.saihou.service.impl;
 
 import com.saihou.entity.Order;
 import com.saihou.entity.OrderItem;
+import com.saihou.entity.Product;
+import com.saihou.entity.User;
 import com.saihou.mapper.OrderItemMapper;
 import com.saihou.service.OrderItemService;
+import com.saihou.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,8 @@ public class OrderItemServiceImpl implements OrderItemService {
     @Autowired
     @Qualifier("orderItemMapper")
     private OrderItemMapper orderItemMapper;
+    @Autowired
+    private ProductService productService;
 
     @Override
     public List<OrderItem> findAll() {
@@ -80,5 +85,37 @@ public class OrderItemServiceImpl implements OrderItemService {
 
         order.setAmount(amount);
         order.setNumber(number);
+    }
+
+    @Override
+    public int checkOrderItem(User user, Integer pid, Integer num) {
+        Product product = productService.findById(pid);
+        List<OrderItem> orderItems = findByUid(user.getId());
+
+        int orderItemId = 0;
+        boolean isExist = false;
+
+        for (OrderItem orderItem : orderItems) {
+            if (orderItem.getProduct().getId().equals(product.getId())) {
+                orderItem.setNumber(orderItem.getNumber() + num);
+                update(orderItem);
+
+                isExist = true;
+                orderItemId = orderItem.getId();
+                break;
+            }
+        }
+
+        if (!isExist) {
+            OrderItem orderItem = new OrderItem();
+            orderItem.setUid(user.getId());
+            orderItem.setPid(pid);
+            orderItem.setNumber(num);
+
+            insert(orderItem);
+            orderItemId = orderItem.getId();
+        }
+
+        return orderItemId;
     }
 }

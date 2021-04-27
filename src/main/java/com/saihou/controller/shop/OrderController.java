@@ -2,11 +2,9 @@ package com.saihou.controller.shop;
 
 import com.saihou.entity.Order;
 import com.saihou.entity.OrderItem;
-import com.saihou.entity.Product;
 import com.saihou.entity.User;
 import com.saihou.service.OrderItemService;
 import com.saihou.service.OrderService;
-import com.saihou.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +21,7 @@ import java.util.*;
  * @author saihou
  * @date 2021/04/24
  */
-@SuppressWarnings({"SpringMVCViewInspection", "SpringJavaAutowiredFieldsWarningInspection"})
+@SuppressWarnings({"SpringJavaAutowiredFieldsWarningInspection"})
 @Controller("shopOrderController")
 @RequestMapping("/order")
 public class OrderController {
@@ -32,19 +30,17 @@ public class OrderController {
     private OrderService orderService;
     @Autowired
     private OrderItemService orderItemService;
-    @Autowired
-    private ProductService productService;
 
     @RequestMapping("/buyCurrently")
     public String buyCurrently(HttpSession session, Integer pid, Integer num) {
         User user = (User) session.getAttribute("user");
 
-        int orderItemId = checkOrderItem(user, pid, num);
+        int orderItemId = orderItemService.checkOrderItem(user, pid, num);
 
-        return "redirect:/order/confirmOrder?oiId=" + orderItemId;
+        return "redirect:/order/submitOrder?oiId=" + orderItemId;
     }
 
-    @RequestMapping("/confirmOrder")
+    @RequestMapping("/submitOrder")
     public String confirmOrder(HttpSession session, Model model, String[] oiId) {
         List<OrderItem> orderItems = new ArrayList<>();
         float amount = 0;
@@ -73,7 +69,7 @@ public class OrderController {
         Integer num = params.get("num");
         User user = (User) session.getAttribute("user");
 
-        checkOrderItem(user, pid, num);
+        orderItemService.checkOrderItem(user, pid, num);
 
         return "success";
     }
@@ -132,8 +128,6 @@ public class OrderController {
     @SuppressWarnings("unchecked")
     @RequestMapping("/createOrder")
     public String createOrder(HttpSession session, Order order) {
-        System.out.println("into createOrder");
-
         User user = (User) session.getAttribute("user");
         List<OrderItem> orderItems = (List<OrderItem>) session.getAttribute("orderItems");
 
@@ -171,43 +165,48 @@ public class OrderController {
      * 支払い成功ページに移動
      */
     @RequestMapping("/paySuccess")
-    public String paySuccess(Model model){
+    public String paySuccess(Model model) {
         model.addAttribute("title", "支払い成功");
 
         return "/shop/order/hasPaid";
     }
 
     /**
-     * この商品は既に追加しているかを確認する
+     * ユーザオーダーページに移動
      */
-    private int checkOrderItem(User user, Integer pid, Integer num) {
-        Product product = productService.findById(pid);
-        List<OrderItem> orderItems = orderItemService.findByUid(user.getId());
+    @RequestMapping("/orders")
+    public String orders(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
 
-        int orderItemId = 0;
-        boolean isExist = false;
+        List<Order> orders = orderService.findByUid(user.getId());
+        orderItemService.calculateAll(orders);
 
-        for (OrderItem orderItem : orderItems) {
-            if (orderItem.getProduct().getId().equals(product.getId())) {
-                orderItem.setNumber(orderItem.getNumber() + num);
-                orderItemService.update(orderItem);
+        model.addAttribute("title", "ユーザオーダー");
+        model.addAttribute("orders", orders);
 
-                isExist = true;
-                orderItemId = orderItem.getId();
-                break;
-            }
-        }
+        return "/shop/order/orders";
+    }
 
-        if (!isExist) {
-            OrderItem orderItem = new OrderItem();
-            orderItem.setUid(user.getId());
-            orderItem.setPid(pid);
-            orderItem.setNumber(num);
+    /**
+     * オーダー完成、状態変更（finish）
+     */
+    @RequestMapping("")
+    public String confirmOrder(Model model, Integer id) {
+        Order order = orderService.confirmOrder(id);
 
-            orderItemService.insert(orderItem);
-            orderItemId = orderItem.getId();
-        }
+        model.addAttribute("title", "オーダー完成");
+        model.addAttribute("order", order);
 
-        return orderItemId;
+        return "/shop/order/confirm";
+    }
+
+    /**
+     * オーダー削除、状態変更（delete）
+     */
+    @RequestMapping("/delete")
+    public String deleteOrder(Integer id) {
+        orderService.deleteOrder(id);
+
+        return "success";
     }
 }

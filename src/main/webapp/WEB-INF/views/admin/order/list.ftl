@@ -41,15 +41,16 @@
                     <td>${order.number} 個</td>
                     <td>${order.user.name}</td>
                     <td>${order.createdDate?string("yyyy-MM-dd HH:mm:ss")}</td>
-                    <td>${order.paidDate?string("yyyy-MM-dd HH:mm:ss")}</td>
-                    <td><#if order.deliverdDate??>${order.deliveredDate?string("yyyy-MM-dd HH:mm:ss")}</#if> </td>
-                    <td><#if order.confirmdDate??>${order.confirmedDate?string("yyyy-MM-dd HH:mm:ss")}</#if></td>
+                    <td><#if order.paidDate??>${order.paidDate?string("yyyy-MM-dd HH:mm:ss")}</#if></td>
+                    <td><#if order.deliveredDate??>${order.deliveredDate?string("yyyy-MM-dd HH:mm:ss")}</#if> </td>
+                    <td><#if order.confirmedDate??>${order.confirmedDate?string("yyyy-MM-dd HH:mm:ss")}</#if></td>
                     <td>
-                        <a href="#" onclick="showItems()"><i class="fas fa-tasks"></i></a> | <a
-                                href="/jishop/admin/order/deliver?id=${order.id}"><i class="fas fa-truck"></i></a>
+                        <!-- <a href="#" onclick="showItems()"><i class="fas fa-tasks"></i></a>| -->
+                        <a href="/jishop/admin/order/deliver?id=${order.id}"><i class="fas fa-truck"></i></a>
                     </td>
                 </tr>
             </#list>
+
             <!-- OrderItem -->
             <tr>
                 <table id="orderItems" class="table col-10 item-table">

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 商品コメント
+ * 商品評価
  *
  * @author saihou
  * @date 2021/04/23

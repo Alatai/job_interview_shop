@@ -20,7 +20,7 @@ import java.util.List;
  * @version 1.0
  * @date 2021/04/21 23:11
  */
-@SuppressWarnings({"SpringMVCViewInspection", "SpringJavaAutowiredFieldsWarningInspection"})
+@SuppressWarnings({"SpringJavaAutowiredFieldsWarningInspection"})
 @Controller("shopProductController")
 @RequestMapping("/product")
 public class ProductController {

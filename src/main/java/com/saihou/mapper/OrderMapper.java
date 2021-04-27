@@ -18,9 +18,11 @@ public interface OrderMapper {
 
     Order findById(Integer id);
 
+    List<Order> findByUid(Integer id);
+
     int insert(Order order);
 
     int update(Order order);
 
-    int delete(Long id);
+    int delete(Integer id);
 }

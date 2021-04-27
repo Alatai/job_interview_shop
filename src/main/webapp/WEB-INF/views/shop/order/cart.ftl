@@ -129,7 +129,7 @@
             });
 
             params = params.substring(1);
-            location.href = "http://localhost:8080/jishop/order/confirmOrder?" + params;
+            location.href = "http://localhost:8080/jishop/order/submitOrder?" + params;
         });
     });
 

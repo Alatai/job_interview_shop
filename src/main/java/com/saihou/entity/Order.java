@@ -44,6 +44,8 @@ public class Order implements Serializable {
 
     private Integer number; // 数
 
+    private String statusDesc;
+
     private List<OrderItem> orderItems;
 
     private User user;
@@ -198,7 +200,7 @@ public class Order implements Serializable {
                 desc = "受け取り待ち";
                 break;
             case OrderService.WAIT_REVIEW:
-                desc = "コメント待ち";
+                desc = "評価待ち";
                 break;
             case OrderService.FINISHED:
                 desc = "完成";

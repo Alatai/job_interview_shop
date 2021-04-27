@@ -46,6 +46,14 @@
         where id = #{id}
     </select>
 
+    <!-- findByUid -->
+    <select id="findByUid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from Orders
+        where uid = #{uid}
+    </select>
+
     <!-- insert -->
     <insert id="insert" parameterType="com.saihou.entity.Order" useGeneratedKeys="true" keyProperty="id">
         insert into Orders (id, orderCode, address, postCode, receiver, phoneNumber, remark, createdDate, paidDate,

@@ -99,7 +99,7 @@
 
             <div class="jo-total clear-fix">
                 <div class="float-right">
-                    <span>实付款：</span>
+                    <span>金額：</span>
                     <span class="total">￥${amount?string("0.00")}</span>
                 </div>
             </div>

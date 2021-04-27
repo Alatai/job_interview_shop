@@ -7,7 +7,7 @@ import java.util.List;
 
 
 /**
- * 商品コメント
+ * 商品評価
  */
 @Repository("reviewMapper")
 public interface ReviewMapper {

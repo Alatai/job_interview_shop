@@ -107,6 +107,28 @@
 
             return true;
         });
+
+        // 商品詳細と評価、クリックして交換
+        $('.jir-content').hide();
+
+        $('#productDetail').click(function () {
+            $('#productReviews').removeClass('selected');
+            $(this).addClass('selected');
+
+            $('.jir-content').hide();
+            $('.pd-property').show();
+            $('#detailImage').show();
+
+        });
+
+        $('#productReviews').click(function () {
+            $('#productDetail').removeClass('selected');
+            $(this).addClass('selected');
+
+            $('#detailImage').hide();
+            $('.pd-property').hide();
+            $('.jir-content').show();
+        });
     });
 </script>
 
@@ -179,8 +201,8 @@
 
     <div class="p-details">
         <div class="pd-top">
-            <a class="detail" href="#">商品詳細</a>
-            <a class="review" href="#">評価数 <span>${product.reviewCount}</span></a>
+            <a id="productDetail" class="detail selected" href="#">商品詳細</a>
+            <a id="productReviews" class="review " href="#">評価数 <span>${product.reviewCount}</span></a>
         </div>
 
         <div class="pd-property">
@@ -192,12 +214,27 @@
             </div>
         </div>
 
-        <div>
+        <div id="detailImage">
             <#list product.detailImages as detailImage>
                 <img src="../image/detail/${detailImage.name}" alt="">
             </#list>
         </div>
+
+        <div class="jir-content">
+            <#list reviews as review>
+                <div class="jir-item clear-fix">
+                    <div class="jir-info">
+                        <div class="jir-desc">${review.content}</div>
+                        <div class="jir-date">${review.createdDate?string("yyyy-MM-dd HH:mm:ss")}</div>
+                    </div>
+                    <div class="jir-user">
+                        ${review.user.name}
+                    </div>
+                </div>
+            </#list>
+        </div>
     </div>
+
 </div>
 
 <#include "../../shop/product/loginModal.ftl">
