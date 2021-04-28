@@ -7,8 +7,13 @@ import com.saihou.service.ProductImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * 商品写真
@@ -61,6 +66,38 @@ public class ProductImageServiceImpl implements ProductImageService {
     @Override
     public int delete(Integer id) {
         return productImageMapper.delete(id);
+    }
+
+    @Override
+    public void upload(HttpServletRequest request, MultipartFile image, ProductImage productImage) {
+        // アップロードパス
+        String path;
+
+        // 二つのファイルを用意している
+        if (ProductImageService.TYPE_SINGLE.equals(productImage.getType())) {
+            path = request.getSession().getServletContext().getRealPath("/image/single");
+        } else {
+            path = request.getSession().getServletContext().getRealPath("/image/detail");
+        }
+
+        File file = new File(path);
+
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+
+        // ファイル名を設置する
+        String filename = image.getOriginalFilename();
+        String uuid = UUID.randomUUID().toString().replace("-", "");
+        filename = uuid + "_" + filename;
+
+        try {
+            image.transferTo(new File(path, filename));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        productImage.setName(filename);
     }
 
 }

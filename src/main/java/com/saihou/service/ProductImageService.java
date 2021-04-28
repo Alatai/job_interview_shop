@@ -1,7 +1,9 @@
 package com.saihou.service;
 
 import com.saihou.entity.ProductImage;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -36,4 +38,5 @@ public interface ProductImageService {
 
     int delete(Integer id);
 
+    void upload(HttpServletRequest request, MultipartFile image, ProductImage productImage);
 }
