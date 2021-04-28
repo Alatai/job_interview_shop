@@ -21,6 +21,8 @@ public class Review implements Serializable {
 
     private User user;
 
+    private Integer oid;
+
     public Integer getId() {
         return id;
     }
@@ -67,5 +69,13 @@ public class Review implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Integer getOid() {
+        return oid;
+    }
+
+    public void setOid(Integer oid) {
+        this.oid = oid;
     }
 }

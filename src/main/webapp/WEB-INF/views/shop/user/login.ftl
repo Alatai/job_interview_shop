@@ -28,3 +28,6 @@
         </form>
     </div>
 </div>
+
+
+<#include "../../common/shop/footer.ftl">

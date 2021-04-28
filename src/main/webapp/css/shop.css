@@ -55,13 +55,9 @@ button, input, textarea, select, a {
     *zoom: 1;
 }
 
-.red-color {
-    color: #c40000 !important;
-}
-
 .ji-container {
     position: relative;
-    width: 1140px;
+    width: 1190px;
     height: 100%;
     margin: 0 auto;
 }
@@ -78,15 +74,16 @@ button, input, textarea, select, a {
 
 .ji-nav span, .ji-nav a {
     margin: 0 10px 0 10px;
-    color: #999;
+    color:#ff0036;
 }
 
 .ji-nav a:hover {
-    color: #c40000;
+    color: #ff0036;
 }
 
 .ji-nav a {
     color: #999;
+    text-decoration: none;
 }
 
 /* ji-nav end */
@@ -113,7 +110,7 @@ button, input, textarea, select, a {
 
 .ji-search a:hover {
     text-decoration: none !important;
-    color: #c40000;
+    color: #ff0036;
 }
 
 .ji-search .ji-logo {
@@ -128,7 +125,7 @@ button, input, textarea, select, a {
     height: 40px;
     margin: 50px auto;
     padding: 1px;
-    background-color: #FF0036;
+    background-color: #ff0036;
 }
 
 .jis-div input {
@@ -143,7 +140,7 @@ button, input, textarea, select, a {
 .jis-div button {
     width: 110px;
     border: 1px solid transparent;
-    background-color: #FF0036;
+    background-color: #ff0036;
     font-size: 20px;
     color: #fff;
 }
@@ -170,7 +167,7 @@ button, input, textarea, select, a {
     background-color: #fff;
     border-style: solid;
     border-width: 0 0 2px;
-    border-color: #FF0036;
+    border-color: #ff0036;
     text-align: center;
 }
 
@@ -182,7 +179,7 @@ button, input, textarea, select, a {
     line-height: 36px;
     font-size: 16px;
     font-weight: bold;
-    background-color: #FF0036;
+    background-color: #ff0036;
     color: #fff;
 }
 
@@ -293,7 +290,7 @@ button, input, textarea, select, a {
 
 /* ji-register begin */
 .ji-register form {
-    width: 450px;
+    width: 460px;
     height: 450px;
     margin: 100px auto 0;
     border: 1px solid #e7e7e7;
@@ -304,7 +301,7 @@ button, input, textarea, select, a {
 }
 
 .ji-register label {
-    width: 150px;
+    width: 160px;
     padding: 10px 30px;
     text-align: right;
 }
@@ -328,7 +325,7 @@ button, input, textarea, select, a {
     height: 36px;
     margin: 10px auto 0;
     border-radius: 2px;
-    background-color: #C40000;
+    background-color: #ff0036;
     border-width: 0;
     color: white;
 }
@@ -377,7 +374,7 @@ button, input, textarea, select, a {
     width: 100%;
     height: 34px;
     border: 0;
-    background-color: #C40000;
+    background-color: #ff0036;
     font-size: 14px;
     font-weight: bold;
     color: white;
@@ -387,7 +384,7 @@ button, input, textarea, select, a {
 
 /* product-panel begin */
 .product-panel {
-    max-width: 1013px;
+    max-width: 1190px;
     margin: 10px auto;
 }
 
@@ -698,7 +695,7 @@ button, input, textarea, select, a {
 /* ji-account begin */
 .ji-order .ji-address, .ja-confirm {
     margin: 100px auto 20px;
-    max-width: 1013px;
+    max-width: 1190px;
 }
 
 .ja-tip {
@@ -983,7 +980,7 @@ button, input, textarea, select, a {
 
 /* ji-orders begin */
 .ji-orders {
-    max-width: 1013px;
+    max-width: 1190px;
     margin: 100px auto 10px;
 }
 
@@ -1107,3 +1104,95 @@ button, input, textarea, select, a {
 }
 
 /* ji-orders end */
+
+/* ji-review begin */
+.ji-review {
+    width: 950px;
+    margin: 200px auto 0;
+}
+
+.ji-review .jir-header {
+    position: relative;
+    vertical-align: middle;
+    border-bottom: 2px solid #f40;
+    line-height: 35px;
+    background: #efefef;
+    z-index: 1;
+}
+
+.jir-header h3 {
+    float: left;
+    background-color: #f40;
+    padding: 2px 50px;
+    margin: 0;
+    text-align: center;
+    color: #FFF;
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+.ji-review .jir-body {
+    border: 1px solid #d9e3eb;
+    margin-top: -2px;
+}
+
+.jir-body ul {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.jir-body .jir-product {
+    width: 200px;
+}
+
+.jir-body li img {
+    float: left;
+    position: relative;
+    width: 160px;
+    padding: 20px 0 0 100px;
+}
+
+.jir-body li div {
+    float: left;
+}
+
+.jir-body .jir-main {
+    float: left;
+    width: 570px;
+    margin-left: 50px;
+}
+
+.jir-body .jir-bcg {
+    padding: 3px;
+    border: 1px solid #DAF1FC;
+    background: #EEF8FD;
+    zoom: 1;
+}
+
+.jir-body textarea {
+    display: block;
+    position: relative;
+    top: -24px;
+    width: 544px;
+    height: 110px;
+    padding: 8px;
+    border: 1px solid #CCC;
+    outline: 0;
+    resize: vertical;
+}
+
+.ji-review .jir-submit {
+    margin-top: 10px;
+    padding: 20px 0 30px 290px;
+}
+
+.jir-submit button {
+    width: 104px;
+    padding: 9px 13px;
+    border: none;
+    font-size: 12px;
+    color: #fff;
+    background-color: #3498db;
+}
+
+/* ji-review end */

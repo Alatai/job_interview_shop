@@ -21,4 +21,6 @@ public interface ReviewService {
     int update(Review review);
 
     int delete(Integer id);
+
+    void insertReviews(List<Review> reviews, Integer uid);
 }

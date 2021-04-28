@@ -1,7 +1,7 @@
 <div class="ji-nav">
     <div class="ji-container">
         <a href="http://localhost:8080/jishop/index">
-            <span class="red-color"><i class="fas fa-home"></i></span>
+            <span><i class="fas fa-home"></i></span>
             JI SHOP ホーム
         </a>
 
@@ -21,7 +21,9 @@
             <a href="http://localhost:8080/jishop/order/orders">注文履歴</a>
             <a href="http://localhost:8080/jishop/order/cart">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="red-color">カート <strong id="cartNum" >${Session["cartNum"]}</strong> 件</span>
+                <span>
+                    カート <strong id="cartNum" >${Session["cartNum"]}</strong> 件
+                </span>
             </a>
         </span>
     </div>

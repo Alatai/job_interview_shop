@@ -90,7 +90,7 @@
                             </td>
                             <td style="width: 100px;" class="info-td info-part" rowspan="${order.orderItems?size}">
                                 <#if order.status == "waitReview" >
-                                    <a href="../review/">
+                                    <a href="../review/review?oid=${order.id}">
                                         <button>評価</button>
                                     </a>
                                 </#if>

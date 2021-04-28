@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,5 +47,15 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public int delete(Integer id) {
         return reviewMapper.delete(id);
+    }
+
+    @Override
+    public void insertReviews(List<Review> reviews, Integer uid) {
+        for (Review review : reviews) {
+            review.setUid(uid);
+            review.setCreatedDate(new Date());
+
+            insert(review);
+        }
     }
 }
