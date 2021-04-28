@@ -50,6 +50,11 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
+    public List<OrderItem> findByPid(Integer pid) {
+        return orderItemMapper.findByPid(pid);
+    }
+
+    @Override
     public int insert(OrderItem orderItem) {
         return orderItemMapper.insert(orderItem);
     }
@@ -117,5 +122,17 @@ public class OrderItemServiceImpl implements OrderItemService {
         }
 
         return orderItemId;
+    }
+
+    @Override
+    public int getSaleCount(Integer pid) {
+        List<OrderItem> orderItems = findByPid(pid);
+        int saleCount = 0;
+
+        for (OrderItem orderItem : orderItems) {
+            saleCount += orderItem.getNumber();
+        }
+
+        return saleCount;
     }
 }

@@ -23,4 +23,6 @@ public interface ReviewService {
     int delete(Integer id);
 
     void insertReviews(List<Review> reviews, Integer uid);
+
+    int getReviewCount(Integer pid);
 }

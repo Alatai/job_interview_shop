@@ -2,8 +2,12 @@ package com.saihou.service.impl;
 
 import com.saihou.entity.Category;
 import com.saihou.entity.Product;
+import com.saihou.entity.ProductImage;
 import com.saihou.mapper.ProductMapper;
+import com.saihou.service.OrderItemService;
+import com.saihou.service.ProductImageService;
 import com.saihou.service.ProductService;
+import com.saihou.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -25,6 +29,12 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     @Qualifier("productMapper")
     private ProductMapper productMapper;
+    @Autowired
+    private ProductImageService productImageService;
+    @Autowired
+    private OrderItemService orderItemService;
+    @Autowired
+    private ReviewService reviewService;
 
     @Override
     public List<Product> findAll() {
@@ -39,6 +49,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findByCid(Integer id) {
         return productMapper.findByCid(id);
+    }
+
+    @Override
+    public List<Product> findByKeyword(String keyword) {
+        return productMapper.findByKeyword("%" + keyword + "%");
     }
 
     @Override
@@ -76,5 +91,33 @@ public class ProductServiceImpl implements ProductService {
 
             category.setProductsByRow(productsByRow);
         }
+    }
+
+    @Override
+    public Product productDetail(Integer id) {
+        Product product = findById(id);
+
+        List<ProductImage> singleImages = productImageService.findByCondition(id, ProductImageService.TYPE_SINGLE);
+        List<ProductImage> detailImages = productImageService.findByCondition(id, ProductImageService.TYPE_DETAIL);
+
+        product.setSingleImages(singleImages);
+        product.setDetailImages(detailImages);
+
+        return product;
+    }
+
+    @Override
+    public List<Product> getSearchResult(String keyword) {
+        List<Product> products = findByKeyword(keyword);
+
+        for (Product product : products) {
+            int saleCount = orderItemService.getSaleCount(product.getId());
+            int reviewCount = reviewService.getReviewCount(product.getId());
+
+            product.setSaleCount(saleCount);
+            product.setReviewCount(reviewCount);
+        }
+
+        return products;
     }
 }

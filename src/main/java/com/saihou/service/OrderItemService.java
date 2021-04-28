@@ -22,6 +22,8 @@ public interface OrderItemService {
 
     List<OrderItem> findByUid(Integer uid);
 
+    List<OrderItem> findByPid(Integer pid);
+
     int insert(OrderItem orderItem);
 
     int update(OrderItem orderItem);
@@ -42,4 +44,6 @@ public interface OrderItemService {
      * この商品は既に追加しているかを確認する
      */
     int checkOrderItem(User user, Integer pid, Integer num);
+
+    int getSaleCount(Integer pid);
 }

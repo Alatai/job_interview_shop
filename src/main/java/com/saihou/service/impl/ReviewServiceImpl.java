@@ -58,4 +58,9 @@ public class ReviewServiceImpl implements ReviewService {
             insert(review);
         }
     }
+
+    @Override
+    public int getReviewCount(Integer pid) {
+        return findByPid(pid).size();
+    }
 }

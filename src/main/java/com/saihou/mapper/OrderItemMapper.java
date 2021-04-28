@@ -27,4 +27,6 @@ public interface OrderItemMapper {
     int update(OrderItem orderItem);
 
     int delete(Integer id);
+
+    List<OrderItem> findByPid(Integer pid);
 }

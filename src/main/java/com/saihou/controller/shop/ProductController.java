@@ -1,10 +1,9 @@
 package com.saihou.controller.shop;
 
+import com.github.pagehelper.PageHelper;
 import com.saihou.entity.Product;
-import com.saihou.entity.ProductImage;
 import com.saihou.entity.PropertyValue;
 import com.saihou.entity.Review;
-import com.saihou.service.ProductImageService;
 import com.saihou.service.ProductService;
 import com.saihou.service.PropertyValueService;
 import com.saihou.service.ReviewService;
@@ -28,22 +27,13 @@ public class ProductController {
     @Autowired
     private ProductService productService;
     @Autowired
-    private ProductImageService productImageService;
-    @Autowired
     private PropertyValueService propertyValueService;
     @Autowired
     private ReviewService reviewService;
 
     @RequestMapping("/detail")
     private String getProduct(Model model, Integer id) {
-        Product product = productService.findById(id);
-
-        List<ProductImage> singleImages = productImageService.findByCondition(id, ProductImageService.TYPE_SINGLE);
-        List<ProductImage> detailImages = productImageService.findByCondition(id, ProductImageService.TYPE_DETAIL);
-
-        product.setSingleImages(singleImages);
-        product.setDetailImages(detailImages);
-
+        Product product = productService.productDetail(id);
         List<PropertyValue> propertyValues = propertyValueService.findByPid(id);
         List<Review> reviews = reviewService.findByPid(id);
 
@@ -52,5 +42,15 @@ public class ProductController {
         model.addAttribute("reviews", reviews);
 
         return "/shop/product/detail";
+    }
+
+    @RequestMapping("/search")
+    private String search(Model model, String keyword) {
+        PageHelper.offsetPage(0, 20);
+        List<Product> products = productService.getSearchResult(keyword);
+
+        model.addAttribute("products", products);
+
+        return "/shop/product/results";
     }
 }

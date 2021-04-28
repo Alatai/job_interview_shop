@@ -19,6 +19,8 @@ public interface ProductService {
 
     List<Product> findByCid(Integer id);
 
+    List<Product> findByKeyword(String keyword);
+
     int insert(Product product);
 
     int update(Product product);
@@ -29,4 +31,8 @@ public interface ProductService {
      * 分類を基に、関連している商品を検索
      */
     void fillRows(List<Category> categories);
+
+    Product productDetail(Integer id);
+
+    List<Product> getSearchResult(String keyword);
 }

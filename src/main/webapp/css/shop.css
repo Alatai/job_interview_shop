@@ -74,7 +74,7 @@ button, input, textarea, select, a {
 
 .ji-nav span, .ji-nav a {
     margin: 0 10px 0 10px;
-    color:#ff0036;
+    color: #ff0036;
 }
 
 .ji-nav a:hover {
@@ -1196,3 +1196,59 @@ button, input, textarea, select, a {
 }
 
 /* ji-review end */
+
+/* ji-results begin */
+.jip-container {
+    width: 1210px;
+    margin: 100px auto 0;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.jip-item {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #f5f5f5;
+}
+
+.jip-item img {
+    width: 210px;
+    height: 210px;
+}
+
+.jip-item .jip-price {
+    font-weight: 400;
+    font-size: 20px;
+    color: #ff0036;
+    margin: 0 0 5px;
+}
+
+.jip-price span {
+    font-size: 14px;
+}
+
+.jip-item .jip-title {
+    position: relative;
+    height: 14px;
+    margin-bottom: 3px;
+    line-height: 12px;
+    color: #666;
+}
+
+.jip-title a {
+    font-size: 12px;
+    line-height: 14px;
+    color: #333;
+}
+
+.jip-item .jip-info {
+    margin-bottom: 6px;
+    border-top: 1px solid #eee;
+}
+
+.jip-item .jip-info span {
+    padding: 10px 1px;
+}
+
+/* ji-results end */

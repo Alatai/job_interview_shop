@@ -20,6 +20,8 @@ public interface ProductMapper {
 
     List<Product> findByCid(Integer id);
 
+    List<Product> findByKeyword(String keyword);
+
     int insert(Product product);
 
     int update(Product product);

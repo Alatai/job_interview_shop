@@ -46,6 +46,14 @@
         where cid = #{cid}
     </select>
 
+    <!-- findByKeyword -->
+    <select id="findByKeyword" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from Product
+        where name like #{keyword}
+    </select>
+
     <!-- insert -->
     <insert id="insert" parameterType="com.saihou.entity.Product" useGeneratedKeys="true" keyProperty="id">
         insert into Product (id, name, subtitle,
