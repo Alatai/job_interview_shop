@@ -10,12 +10,12 @@
 
                             <div>
                                 <label for="name"><i class="fas fa-user"></i></label>
-                                <input id="name" name="name" type="text" placeholder="ユーザネーム">
+                                <input id="name" name="name" type="text" placeholder="ユーザネーム" required>
                             </div>
 
                             <div>
                                 <label for="password"><i class="fas fa-unlock-alt"></i></label>
-                                <input id="password" name="password" type="text" placeholder="パスワード">
+                                <input id="password" name="password" type="text" placeholder="パスワード" required>
                             </div>
 
                             <div>

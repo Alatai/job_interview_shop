@@ -301,7 +301,7 @@ button, input, textarea, select, a {
 }
 
 .ji-register label {
-    width: 160px;
+    width: 180px;
     padding: 10px 30px;
     text-align: right;
 }
@@ -337,7 +337,7 @@ button, input, textarea, select, a {
     position: relative;
     top: 100px;
     width: 350px;
-    height: 400px;
+    height: 450px;
     margin: 0 auto;
     border: 1px solid #e7e7e7;
 }

@@ -16,6 +16,10 @@
     <!-- bootstrap js -->
     <script type="text/javascript" src="http://localhost:8080/jishop/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="http://localhost:8080/jishop/js/bootstrap.min.js"></script>
+    <!-- jquery validate -->
+    <script type="text/javascript" src="http://localhost:8080/jishop/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/jishop/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/jishop/js/messages_ja.js"></script>
 
     <title>${title}</title>
 </head>
