@@ -2,6 +2,10 @@ package com.saihou.controller.shop;
 
 import com.saihou.entity.User;
 import com.saihou.service.UserService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,14 +49,9 @@ public class UserController {
             return "/shop/user/register";
         }
 
-        userService.insert(user);
+        userService.register(user);
 
         return "redirect:/user/login";
-    }
-
-    @RequestMapping("/success")
-    public String registerSuccess() {
-        return "/shop/user/success";
     }
 
     @RequestMapping("/login")
@@ -63,31 +62,40 @@ public class UserController {
     @RequestMapping("/login.do")
     public String login(Model model, HttpSession session, String name, String password) {
         name = HtmlUtils.htmlEscape(name);
-        User user = userService.findByCondition(name, password);
 
-        if (null == user) {
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(name, password);
+
+        try {
+            subject.login(token);
+            User user = userService.findByName(name);
+            session.setAttribute("user", user);
+
+            return "redirect:/index";
+        } catch (AuthenticationException exp) {
             model.addAttribute("msg", "ユーザネームとパスワードが間違っています。");
+
             return "/shop/user/login";
         }
-
-        session.setAttribute("user", user);
-
-        return "redirect:/index";
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpSession session) {
-        session.removeAttribute("user");
+    public String logout() {
+        Subject subject = SecurityUtils.getSubject();
+
+        if (subject.isAuthenticated()) {
+            subject.logout();
+        }
 
         return "redirect:/index";
     }
 
     @RequestMapping("/checkLogin")
     @ResponseBody
-    public String checkLogin(HttpSession session) {
-        User user = (User) session.getAttribute("user");
+    public String checkLogin() {
+        Subject subject = SecurityUtils.getSubject();
 
-        if (user == null) {
+        if (!subject.isAuthenticated()) {
             return "fail";
         }
 
@@ -100,14 +108,17 @@ public class UserController {
         String name = params.get("name");
         String password = params.get("password");
 
-        User user = userService.findByCondition(name, password);
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(name, password);
 
-        if (user == null) {
+        try {
+            subject.login(token);
+            User user = userService.findByName(name);
+            session.setAttribute("user", user);
+
+            return "success";
+        } catch (AuthenticationException exp) {
             return "fail";
         }
-
-        session.setAttribute("user", user);
-
-        return "success";
     }
 }

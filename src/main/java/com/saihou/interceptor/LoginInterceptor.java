@@ -1,6 +1,8 @@
 package com.saihou.interceptor;
 
 import com.saihou.entity.User;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +23,11 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
         String ctx = session.getServletContext().getContextPath();
 
-        if (user == null) {
+        Subject subject = SecurityUtils.getSubject();
+
+        if (!subject.isAuthenticated()) {
             response.sendRedirect(ctx + "/user/login");
 
             return false;
