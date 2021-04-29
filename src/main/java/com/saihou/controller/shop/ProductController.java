@@ -32,7 +32,7 @@ public class ProductController {
     private ReviewService reviewService;
 
     @RequestMapping("/detail")
-    private String getProduct(Model model, Integer id) {
+    private String productDetail(Model model, Integer id) {
         Product product = productService.productDetail(id);
         List<PropertyValue> propertyValues = propertyValueService.findByPid(id);
         List<Review> reviews = reviewService.findByPid(id);

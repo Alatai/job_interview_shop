@@ -99,7 +99,11 @@ public class ProductServiceImpl implements ProductService {
 
         List<ProductImage> singleImages = productImageService.findByCondition(id, ProductImageService.TYPE_SINGLE);
         List<ProductImage> detailImages = productImageService.findByCondition(id, ProductImageService.TYPE_DETAIL);
+        int saleCount = orderItemService.getSaleCount(product.getId());
+        int reviewCount = reviewService.getReviewCount(product.getId());
 
+        product.setSaleCount(saleCount);
+        product.setReviewCount(reviewCount);
         product.setSingleImages(singleImages);
         product.setDetailImages(detailImages);
 
