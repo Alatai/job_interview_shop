@@ -38,7 +38,6 @@ public class UserController {
     public String register(Model model, User user) {
         String name = user.getName();
         name = HtmlUtils.htmlEscape(name);
-        user.setName(name);
 
         boolean isExist = userService.isExist(name);
 
