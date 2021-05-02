@@ -122,7 +122,7 @@
             let params = "";
 
             $('.itemInfo').each(function () {
-                if(this.checked) {
+                if (this.checked) {
                     let id = $(this).data('id');
                     params += "&oiId=" + id;
                 }

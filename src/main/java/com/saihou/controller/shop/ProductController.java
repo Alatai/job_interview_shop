@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 /**
- * @author Alatai
- * @version 1.0
- * @date 2021/04/21 23:11
+ * @author saihou
+ * @date 2021/04/21
  */
 @SuppressWarnings({"SpringJavaAutowiredFieldsWarningInspection"})
 @Controller("shopProductController")
@@ -40,6 +39,7 @@ public class ProductController {
         model.addAttribute("product", product);
         model.addAttribute("propertyValues", propertyValues);
         model.addAttribute("reviews", reviews);
+        model.addAttribute("title", product.getName());
 
         return "/shop/product/detail";
     }

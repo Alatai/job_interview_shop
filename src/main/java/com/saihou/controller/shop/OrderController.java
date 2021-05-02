@@ -41,7 +41,7 @@ public class OrderController {
     }
 
     @RequestMapping("/submitOrder")
-    public String confirmOrder(HttpSession session, Model model, String[] oiId) {
+    public String submitOrder(HttpSession session, Model model, String[] oiId) {
         List<OrderItem> orderItems = new ArrayList<>();
         float amount = 0;
 
@@ -52,9 +52,11 @@ public class OrderController {
             orderItems.add(orderItem);
         }
 
-        session.setAttribute("title", "オーダー");
         session.setAttribute("orderItems", orderItems);
+
         model.addAttribute("amount", amount);
+        model.addAttribute("orderItems", orderItems);
+        model.addAttribute("title", "オーダー");
 
         return "/shop/order/order";
     }
@@ -79,6 +81,10 @@ public class OrderController {
      */
     @RequestMapping("/cart")
     public String showCart(HttpSession session, Model model) {
+        if (session.getAttribute("orderItems") != null) {
+            session.removeAttribute("orderItems");
+        }
+
         User user = (User) session.getAttribute("user");
         List<OrderItem> orderItems = orderItemService.findByUid(user.getId());
 
@@ -130,6 +136,7 @@ public class OrderController {
     public String createOrder(HttpSession session, Order order) {
         User user = (User) session.getAttribute("user");
         List<OrderItem> orderItems = (List<OrderItem>) session.getAttribute("orderItems");
+        session.removeAttribute("orderItems");
 
         order.setUid(user.getId());
         order = orderService.createOrder(order, orderItems);
