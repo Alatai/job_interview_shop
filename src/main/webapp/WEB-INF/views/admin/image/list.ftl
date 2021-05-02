@@ -9,7 +9,15 @@
                 <li class="breadcrumb-item"><a href="#">すべての分類</a></li>
                 <li class="breadcrumb-item"><a href="/jishop/admin/product/list?cid=${category.id}">${category.name}</a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">${product.name}</a></li>
+                <li class="breadcrumb-item">
+                    <a href="#">
+                        <#if product.name?length gt 10>
+                            ${product.name?substring(0, 10)}
+                        <#else>
+                            ${product.name}
+                        </#if>
+                    </a>
+                </li>
                 <li class="breadcrumb-item active" aria-current="page">商品写真管理</li>
             </ol>
         </nav>

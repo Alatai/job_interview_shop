@@ -2,7 +2,7 @@
 <#include "../../common/admin/navbar.ftl">
 
 
-<div class="container">
+<div class="container" style="min-width: 1340px;">
     <div class="bread-control">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">

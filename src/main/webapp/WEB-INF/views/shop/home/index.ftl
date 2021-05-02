@@ -18,9 +18,15 @@
                                      alt="写真なし">
                             </a>
                             <a class="pd-link" href="#">
-                                <span class="p-desc">[人気]${product.subtitle}</span>
+                                <span class="p-desc">[人気]
+                                    <#if product.name?length gt 20>
+                                        ${product.name?substring(0, 20)}
+                                    <#else>
+                                        ${product.name}
+                                    </#if>
+                                </span>
                             </a>
-                            <span class="p-price">${product.promotePrice}</span>
+                            <span class="p-price">￥${product.promotePrice}</span>
                         </div>
                     </#if>
                 </#list>

@@ -11,7 +11,8 @@
                     <li class="breadcrumb-item"><a href="#">${category.name}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">商品</li>
                 </ol>
-                <button type="button" class="btn btn-primary add-button" onclick="openProductEditModal(null)">追加</button>
+                <button type="button" class="btn btn-primary add-button" onclick="openProductEditModal(null)">追加
+                </button>
             </div>
         </nav>
     </div>
@@ -39,10 +40,23 @@
                 <tr>
                     <td>${product.id}</td>
                     <td>
-                        <img style="width: 50px;" src="../../image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>" alt="暂无图片">
+                        <img style="width: 50px;"
+                             src="../../image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>" alt="暂无图片">
                     </td>
-                    <td>${product.name}</td>
-                    <td>${product.subtitle}</td>
+                    <td>
+                        <#if product.name?length gt 10>
+                            ${product.name?substring(0, 10)}
+                        <#else>
+                            ${product.name}
+                        </#if>
+                    </td>
+                    <td>
+                        <#if product.subtitle?length gt 10>
+                            ${product.subtitle?substring(0, 10)}
+                        <#else>
+                            ${product.subtitle}
+                        </#if>
+                    </td>
                     <td>${product.originalPrice}</td>
                     <td>${product.promotePrice}</td>
                     <td>${product.stock}</td>
@@ -52,7 +66,8 @@
                         <a href="#" onclick="openProductEditModal(${product.id})">
                             <input type="hidden" id="productName${product.id}" value="${product.name}">
                             <input type="hidden" id="productSubtitle${product.id}" value="${product.subtitle}">
-                            <input type="hidden" id="productOriginalPrice${product.id}" value="${product.originalPrice}">
+                            <input type="hidden" id="productOriginalPrice${product.id}"
+                                   value="${product.originalPrice}">
                             <input type="hidden" id="productPromotePrice${product.id}" value="${product.promotePrice}">
                             <input type="hidden" id="productStock${product.id}" value="${product.stock}">
                             <input type="hidden" id="categoryId${product.id}" value="${product.cid}">

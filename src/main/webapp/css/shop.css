@@ -701,6 +701,10 @@ button, input, textarea, select, a {
 /* product-panel end */
 
 /* ji-account begin */
+.ji-order {
+    margin-bottom: 200px;
+}
+
 .ji-order .ji-address, .ja-confirm {
     margin: 100px auto 20px;
     max-width: 1190px;
@@ -937,6 +941,7 @@ button, input, textarea, select, a {
 /* ji-pay begin */
 .ji-pay {
     margin-top: 200px;
+    margin-bottom: 200px;
     text-align: center;
 }
 
@@ -982,6 +987,7 @@ button, input, textarea, select, a {
 /* ji-paid begin */
 .ji-paid {
     margin-top: 200px;
+    margin-bottom: 200px;
     text-align: center;
 }
 
@@ -990,7 +996,7 @@ button, input, textarea, select, a {
 /* ji-orders begin */
 .ji-orders {
     max-width: 1190px;
-    margin: 100px auto 10px;
+    margin: 100px auto 200px;
 }
 
 .ji-orders .jio-type div {
@@ -1117,7 +1123,7 @@ button, input, textarea, select, a {
 /* ji-review begin */
 .ji-review {
     width: 950px;
-    margin: 200px auto 0;
+    margin: 200px auto;
 }
 
 .ji-review .jir-header {
@@ -1192,7 +1198,7 @@ button, input, textarea, select, a {
 
 .ji-review .jir-submit {
     margin-top: 10px;
-    padding: 20px 0 30px 290px;
+    padding: 20px 0 30px 400px;
 }
 
 .jir-submit button {
@@ -1253,7 +1259,7 @@ button, input, textarea, select, a {
 
 .jip-item .jip-info {
     margin-bottom: 6px;
-    border-top: 1px solid #eee;
+    /*border-top: 1px solid #eee;*/
 }
 
 .jip-item .jip-info span {

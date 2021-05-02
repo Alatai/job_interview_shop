@@ -13,7 +13,15 @@
                     </a>
                 </div>
                 <p class="jip-price"><span>￥</span>${product.promotePrice}</p>
-                <p class="jip-title"><a href="">${product.name}</a></p>
+                <p class="jip-title">
+                    <a href="">
+                        <#if product.name?length gt 20>
+                            ${product.name?substring(0, 20)}
+                        <#else>
+                            ${product.name}
+                        </#if>
+                    </a>
+                </p>
                 <p class="jip-info">
                     <span>成交 <span>${product.saleCount}</span></span>
                     <span>评价 <span>${product.reviewCount}</span></span>

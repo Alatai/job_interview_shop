@@ -43,17 +43,24 @@
             <#list orderItems as orderItem>
                 <li class="clear-fix">
                     <div class="jir-product">
-                        <img style="width: 200px; height: 130px;"
-                             src="../image/single/<#if orderItem.product.productImages[0].type =='type_single'>${orderItem.product.productImages[0].name}</#if>"
-                             alt="暂无图片">
+                        <a href="../product/detail?id=${orderItem.product.id}">
+                            <img style="width: 200px; height: 130px;"
+                                 src="../image/single/<#if orderItem.product.productImages[0].type =='type_single'>${orderItem.product.productImages[0].name}</#if>" alt="暂无图片">
+                        </a>
                         <span style="position: relative;
-    left: 100px;">${orderItem.product.name}</span>
+    left: 100px;">
+                            <#if orderItem.product.name?length gt 10>
+                                ${orderItem.product.name?substring(0, 10)}
+                            <#else>
+                                ${orderItem.product.name}
+                            </#if>
+                        </span>
                     </div>
 
                     <div class="jir-main">
                         <div class="jir-bcg">
                             <label for=""></label>
-                            <textarea name="content" id="" data-pid="${orderItem.pid}" data-oid="${orderItem.oid}"></textarea>
+                            <textarea name="content" id="" data-pid="${orderItem.pid}" data-oid="${orderItem.oid}" required></textarea>
                         </div>
                     </div>
                 </li>
