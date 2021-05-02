@@ -91,7 +91,7 @@ button, input, textarea, select, a {
 /* ji-footer begin */
 .ji-footer {
     position: relative;
-    top: 200px;
+    /*top: 200px;*/
     height: 220px;
     background-color: #000;
 }
@@ -282,13 +282,17 @@ button, input, textarea, select, a {
     display: inline-block;
     width: 5px;
     height: 20px;
-    background-color: #19c8a9;
+    background-color: #e61717;
     vertical-align: top;
 }
 
 /* ji-products end */
 
 /* ji-register begin */
+.ji-register {
+    margin-bottom: 200px;
+}
+
 .ji-register form {
     width: 460px;
     height: 450px;
@@ -333,6 +337,10 @@ button, input, textarea, select, a {
 /* ji-register end */
 
 /* ji-login begin */
+.ji-login {
+    margin-bottom: 200px;
+}
+
 .jil-panel {
     position: relative;
     top: 100px;
@@ -569,7 +577,7 @@ button, input, textarea, select, a {
 
 .p-details {
     width: 790px;
-    margin: 40px auto;
+    margin: 40px auto 200px;
     font-size: 12px;
 }
 
@@ -817,6 +825,7 @@ button, input, textarea, select, a {
 /* ji-cart begin */
 .ji-cart {
     margin-top: 150px;
+    margin-bottom: 220px;
     font-size: 12px;
 }
 
@@ -1200,7 +1209,7 @@ button, input, textarea, select, a {
 /* ji-results begin */
 .jip-container {
     width: 1210px;
-    margin: 100px auto 0;
+    margin: 100px auto 200px;
     padding-left: 5px;
     padding-right: 5px;
 }

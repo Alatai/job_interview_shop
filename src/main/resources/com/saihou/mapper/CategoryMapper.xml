@@ -35,7 +35,7 @@
     <!-- insert -->
     <insert id="insert" parameterType="com.saihou.entity.Category" useGeneratedKeys="true" keyProperty="id">
         insert into Category (name)
-        values (#{name}
+        values (#{name})
     </insert>
 
     <!-- update -->
