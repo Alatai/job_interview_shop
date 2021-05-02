@@ -14,7 +14,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, name, imagePath
+        id, name
     </sql>
 
     <!-- findAll -->
@@ -34,8 +34,8 @@
 
     <!-- insert -->
     <insert id="insert" parameterType="com.saihou.entity.Category" useGeneratedKeys="true" keyProperty="id">
-        insert into Category (name, imagePath)
-        values (#{name}, #{imagePath})
+        insert into Category (name)
+        values (#{name}
     </insert>
 
     <!-- update -->

@@ -16,8 +16,6 @@ public class Category implements Serializable {
 
     private String name;
 
-    private String imagePath;
-
     private List<Property> properties;
 
     private List<Product> products;
@@ -38,14 +36,6 @@ public class Category implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
     }
 
     public List<Property> getProperties() {

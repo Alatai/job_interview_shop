@@ -14,22 +14,22 @@
             <div class="ja-detail">
                 <div>
                     <label for="address">住所<span>*</span></label>
-                    <textarea id="address" name="address"></textarea>
+                    <textarea id="address" name="address" required></textarea>
                 </div>
 
                 <div>
                     <label for="postCode">郵便番号<span>*</span></label>
-                    <input id="postCode" name="postCode" type="text">
+                    <input id="postCode" name="postCode" type="text" required>
                 </div>
 
                 <div>
                     <label for="receiver">受取人<span>*</span></label>
-                    <input id="receiver" name="receiver" type="text">
+                    <input id="receiver" name="receiver" type="text" required>
                 </div>
 
                 <div>
                     <label for="phoneNumber">電話番号<span>*</span></label>
-                    <input id="phoneNumber" name="phoneNumber" type="text">
+                    <input id="phoneNumber" name="phoneNumber" type="text" required>
                 </div>
 
                 <div>

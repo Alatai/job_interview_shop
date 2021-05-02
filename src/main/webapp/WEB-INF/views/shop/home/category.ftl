@@ -31,10 +31,10 @@
                 <img src="http://localhost:8080/jishop/image/site/banner01.jpeg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="http://localhost:8080/jishop/image/site/banner02.jpeg" class="d-block w-100" alt="...">
+                <img src="http://localhost:8080/jishop/image/site/banner02.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="http://localhost:8080/jishop/image/site/banner01.jpeg" class="d-block w-100" alt="...">
+                <img src="http://localhost:8080/jishop/image/site/banner03.jpeg" class="d-block w-100" alt="...">
             </div>
         </div>
         <a class="carousel-control-prev" href="#ji-slider" role="button" data-slide="prev">
@@ -48,4 +48,4 @@
     </div>
 </div>
 
-<div class="ji-sbck"></div>
+<#--<div class="ji-sbck"></div>-->

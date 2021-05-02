@@ -20,12 +20,12 @@
                         <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="サブタイトル">
                     </div>
                     <div class="form-group">
-                        <label for="originalPrice">値段</label>
-                        <input type="text" class="form-control" id="originalPrice" name="originalPrice" placeholder="値段">
+                        <label for="originalPrice">原価</label>
+                        <input type="text" class="form-control" id="originalPrice" name="originalPrice" placeholder="原価">
                     </div>
                     <div class="form-group">
-                        <label for="promotePrice">割引</label>
-                        <input type="text" class="form-control" id="promotePrice" name="promotePrice" placeholder="割引">
+                        <label for="promotePrice">今の値段</label>
+                        <input type="text" class="form-control" id="promotePrice" name="promotePrice" placeholder="今の値段">
                     </div>
                     <div class="form-group">
                         <label for="stock">在庫数</label>

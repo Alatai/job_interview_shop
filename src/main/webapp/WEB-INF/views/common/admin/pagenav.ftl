@@ -8,11 +8,17 @@
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <#list 1..pageInfo.pages as no>
+                <#if (pageInfo.pages > 1)>
+                    <#list 1..pageInfo.pages as no>
+                        <li class="page-item">
+                            <a class="page-link" href="?currentPage=${no}<#if pageParam??>${pageParam}</#if>">${no}</a>
+                        </li>
+                    </#list>
+                <#else>
                     <li class="page-item">
-                        <a class="page-link" href="?currentPage=${no}<#if pageParam??>${pageParam}</#if>">${no}</a>
+                        <a class="page-link" href="?currentPage=1">1</a>
                     </li>
-                </#list>
+                </#if>
                 <li class="page-item">
                     <a class="page-link"
                        href="?currentPage=${pageInfo.nextPage}<#if pageParam??>${pageParam}</#if>" aria-label="Next"
