@@ -160,7 +160,8 @@
         });
 
         if (hasSelected) {
-            $('.jic-btn').css('background-color', '#f40');
+            $('.jic-btn').css('background-color', '#e61717');
+            $('.jic-btn').css('border', 'none');
             $('.jic-btn').removeAttr('disabled');
         } else {
             $('.jic-btn').css('background-color', '#aaa');
