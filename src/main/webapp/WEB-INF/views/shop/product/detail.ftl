@@ -176,13 +176,13 @@
                         <input id="purchaseNum" value="1" type="text" placeholder="1">
                     </span>
                     <span class="arrow">
-                        <a id="increaseNum" class="pn-inc" href="#">
+                        <a id="increaseNum" class="pn-inc" href="javascript:">
                             <span class="up-down"><img src="../image/site/increase.png" alt=""></span>
                         </a>
 
                         <span class="ud-middle"></span>
 
-                        <a id="decreaseNum" class="pn-dec" href="#">
+                        <a id="decreaseNum" class="pn-dec" href="javascript:">
                             <span class="up-down"><img src="../image/site/decrease.png" alt=""></span>
                         </a>
                     </span>
@@ -191,10 +191,10 @@
                 </div>
 
                 <div class="pd-buy">
-                    <a href="#">
+                    <a href="javascript:">
                         <button id="buyCurrently" class="buy">今すく買う</button>
                     </a>
-                    <a id="add2Cart" href="#">
+                    <a id="add2Cart" href="javascript:">
                         <button id="add2CartBtn" class="cart">
                             <i class="fas fa-shopping-cart"></i>カートに入れる
                         </button>
@@ -206,8 +206,8 @@
 
     <div class="p-details">
         <div class="pd-top">
-            <a id="productDetail" class="detail selected" href="#">商品詳細</a>
-            <a id="productReviews" class="review " href="#">評価数 <span>${product.reviewCount}</span></a>
+            <a id="productDetail" class="detail selected" href="javascript:">商品詳細</a>
+            <a id="productReviews" class="review " href="javascript:">評価数 <span>${product.reviewCount}</span></a>
         </div>
 
         <div class="pd-property">

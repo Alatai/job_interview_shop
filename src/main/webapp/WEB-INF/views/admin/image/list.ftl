@@ -6,11 +6,11 @@
     <div class="bread-control">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">すべての分類</a></li>
+                <li class="breadcrumb-item"><a href="javascript:">すべての分類</a></li>
                 <li class="breadcrumb-item"><a href="/jishop/admin/product/list?cid=${category.id}">${category.name}</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="#">
+                    <a href="javascript:">
                         <#if product.name?length gt 10>
                             ${product.name?substring(0, 10)}
                         <#else>
@@ -57,7 +57,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" onclick="openImageDeleteModal(${singleImage.id})">
+                                    <a href="javascript:" onclick="openImageDeleteModal(${singleImage.id})">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -103,7 +103,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" onclick="openImageDeleteModal(${detailImage.id})">
+                                    <a href="javascript:" onclick="openImageDeleteModal(${detailImage.id})">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>

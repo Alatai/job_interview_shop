@@ -6,7 +6,7 @@
         <nav aria-label="breadcrumb">
             <div class="row">
                 <ol class="breadcrumb col-11">
-                    <li class="breadcrumb-item"><a href="#">すべての分類</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:">すべての分類</a></li>
                     <li class="breadcrumb-item"><a href="list?cid=${category.id}">${category.name}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">属性</li>
                 </ol>
@@ -32,14 +32,14 @@
                     <td>${property.id}</td>
                     <td>${property.name}</td>
                     <td>
-                        <a href="#" onclick="openPropertyEditModal(${property.id})">
+                        <a href="javascript:" onclick="openPropertyEditModal(${property.id})">
                             <input id="propertyName${property.id}" value="${property.name}" type="hidden">
                             <input id="categoryId${property.id}" value="${property.cid}" type="hidden">
                             <i class="fas fa-edit" data-toggle="modal" data-target="#editCotegory"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="#" onclick="openPropertyDeleteModal(${property.id})">
+                        <a href="javascript:" onclick="openPropertyDeleteModal(${property.id})">
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>

@@ -7,8 +7,8 @@
         <nav aria-label="breadcrumb">
             <div class="row">
                 <ol class="breadcrumb col-11">
-                    <li class="breadcrumb-item"><a href="#">すべての分類</a></li>
-                    <li class="breadcrumb-item"><a href="#">${category.name}</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:">すべての分類</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:">${category.name}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">商品</li>
                 </ol>
                 <button type="button" class="btn btn-primary add-button" onclick="openProductEditModal(null)">追加
@@ -63,7 +63,7 @@
                     <td><a href="/jishop/admin/image/list?pid=${product.id}"><i class="fas fa-images"></i></a></td>
                     <td><a href="/jishop/admin/pvalue/edit?pid=${product.id}"><i class="fas fa-tasks"></i></a></td>
                     <td>
-                        <a href="#" onclick="openProductEditModal(${product.id})">
+                        <a href="javascript:" onclick="openProductEditModal(${product.id})">
                             <input type="hidden" id="productName${product.id}" value="${product.name}">
                             <input type="hidden" id="productSubtitle${product.id}" value="${product.subtitle}">
                             <input type="hidden" id="productOriginalPrice${product.id}"
@@ -75,7 +75,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="#" onclick="openProductDeleteModal(${product.id})">
+                        <a href="javascript:" onclick="openProductDeleteModal(${product.id})">
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>

@@ -213,7 +213,7 @@
             </tr>
             </thead>
             <tbody>
-            <#list orderItems as orderItem>
+            <#list ois as orderItem>
                 <tr id="orderItem${orderItem.id}">
                     <td>
                         <input class="itemInfo" type="checkbox" data-id="${orderItem.id}"
@@ -234,18 +234,18 @@
                     <td class="jic-num">
                         <input type="hidden" id="stock${orderItem.id}" value="${orderItem.product.stock}">
                         <a class="decrease" data-id="${orderItem.id}" data-price="${orderItem.product.promotePrice}"
-                           href="#">-</a>
+                           href="javascript:;">-</a>
                         <input type="text" id="num${orderItem.id}" data-id="${orderItem.id}" class="numInput"
                                data-price="${orderItem.product.promotePrice}" value="${orderItem.number}"/>
                         <a class="increase" data-id="${orderItem.id}" data-price="${orderItem.product.promotePrice}"
-                           href="#">+</a>
+                           href="javascript:;">+</a>
                     </td>
                     <td>
                         <span id="subtotal${orderItem.id}"
                               class="jic-pp">￥${(orderItem.product.promotePrice * orderItem.number)?string("0.00")}</span>
                     </td>
                     <td>
-                        <a class="deleteItem" href="#" data-id="${orderItem.id}"><i class="fas fa-trash-alt"></i></a>
+                        <a class="deleteItem" href="javascript:;" data-id="${orderItem.id}"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </#list>

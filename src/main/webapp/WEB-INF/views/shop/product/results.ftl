@@ -14,7 +14,7 @@
                 </div>
                 <p class="jip-price"><span>￥</span>${product.promotePrice}</p>
                 <p class="jip-title">
-                    <a href="">
+                    <a href="detail?id=${product.id}">
                         <#if product.name?length gt 20>
                             ${product.name?substring(0, 20)}
                         <#else>

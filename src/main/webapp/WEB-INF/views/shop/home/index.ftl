@@ -17,7 +17,7 @@
                                 <img src="../jishop/image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>"
                                      alt="写真なし">
                             </a>
-                            <a class="pd-link" href="#">
+                            <a class="pd-link" href="product/detail?id=${product.id}">
                                 <span class="p-desc">[人気]
                                     <#if product.name?length gt 20>
                                         ${product.name?substring(0, 20)}

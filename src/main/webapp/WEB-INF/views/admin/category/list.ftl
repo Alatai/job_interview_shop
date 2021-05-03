@@ -7,7 +7,7 @@
         <nav aria-label="breadcrumb">
             <div class="row">
                 <ol class="breadcrumb col-11">
-                    <li class="breadcrumb-item"><a href="#">サイト管理</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:">サイト管理</a></li>
                     <li class="breadcrumb-item active" aria-current="page">商品分類</li>
                 </ol>
                 <button type="button" class="btn btn-primary add-button" onclick="openCategoryEditModal(null)">追加
@@ -39,13 +39,13 @@
                         <a href="/jishop/admin/product/list?cid=${category.id}"><i class="fas fa-shopping-cart"></i></a>
                     </td>
                     <td>
-                        <a href="#" onclick="openCategoryEditModal(${category.id})">
+                        <a href="javascript:" onclick="openCategoryEditModal(${category.id})">
                             <input id="categoryName${category.id}" value="${category.name}" type="hidden">
                             <i class="fas fa-edit" data-toggle="modal" data-target="#editCotegory"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="#" onclick="openCategoryDeleteModal(${category.id})">
+                        <a href="javascript:" onclick="openCategoryDeleteModal(${category.id})">
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>

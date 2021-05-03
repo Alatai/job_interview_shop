@@ -7,7 +7,7 @@
 
         <#if Session["user"]??>
             <span></span>
-            <a href="#">こんにちは、${Session["user"].name}</a>
+            <a href="javascript:">こんにちは、${Session["user"].name}</a>
             <a href="http://localhost:8080/jishop/user/logout">ログアウト</a>
         </#if>
 

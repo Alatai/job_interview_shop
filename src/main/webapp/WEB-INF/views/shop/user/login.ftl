@@ -22,8 +22,8 @@
             </div>
 
             <div>
-                <a class="jil-tip" href="#">パスワード忘れ</a>
-                <a class="jil-tip float-right" href="#">無料登録</a>
+                <a class="jil-tip" href="javascript:">パスワード忘れ</a>
+                <a class="jil-tip float-right" href="javascript:">無料登録</a>
             </div>
 
             <div>

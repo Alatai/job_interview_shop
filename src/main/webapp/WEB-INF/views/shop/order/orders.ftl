@@ -20,11 +20,11 @@
 
 <div class="ji-orders">
     <div class="jio-type clear-fix">
-        <div class="jio-active"><a data-status="all" href="#">すべて</a></div>
-        <div><a data-status="waitPay" href="#">支払い待ち</a></div>
-        <div><a data-status="waitDelivery" href="#">出荷待ち</a></div>
-        <div><a data-status="waitConfirm" href="#">受け取り待ち</a></div>
-        <div><a data-status="waitReview" href="#">評価待ち</a></div>
+        <div class="jio-active"><a data-status="all" href="javascript:">すべて</a></div>
+        <div><a data-status="waitPay" href="javascript:">支払い待ち</a></div>
+        <div><a data-status="waitDelivery" href="javascript:">出荷待ち</a></div>
+        <div><a data-status="waitConfirm" href="javascript:">受け取り待ち</a></div>
+        <div><a data-status="waitReview" href="javascript:">評価待ち</a></div>
         <div class="jio-last"></div>
     </div>
 
@@ -56,7 +56,7 @@
                     <td></td>
                     <td></td>
                     <td class="jio-delete">
-                        <a href="#"><i class="fas fa-trash-alt"></i></a>
+                        <a href="javascript:"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
 
@@ -69,7 +69,7 @@
                         </td>
                         <td class="info-td">
                             <div class="jio-link">
-                                <a href="#">${orderItem.product.name}</a>
+                                <a href="javascript:">${orderItem.product.name}</a>
                                 <img title="クレジットカード支払い" src="../image/site/creditcard.png">
                             </div>
                         </td>

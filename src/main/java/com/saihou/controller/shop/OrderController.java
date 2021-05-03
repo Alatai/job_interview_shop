@@ -81,15 +81,11 @@ public class OrderController {
      */
     @RequestMapping("/cart")
     public String showCart(HttpSession session, Model model) {
-        if (session.getAttribute("orderItems") != null) {
-            session.removeAttribute("orderItems");
-        }
-
         User user = (User) session.getAttribute("user");
         List<OrderItem> orderItems = orderItemService.findByUid(user.getId());
 
         model.addAttribute("title", "ショッピングカート");
-        model.addAttribute("orderItems", orderItems);
+        model.addAttribute("ois", orderItems);
 
         return "/shop/order/cart";
     }

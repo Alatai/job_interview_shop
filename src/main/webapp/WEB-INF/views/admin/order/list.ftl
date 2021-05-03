@@ -6,7 +6,7 @@
     <div class="bread-control">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">サイト管理</a></li>
+                <li class="breadcrumb-item"><a href="javascript:">サイト管理</a></li>
                 <li class="breadcrumb-item active"
                     aria-current="page">オーダー管理
                 </li>
