@@ -26,8 +26,8 @@
                 <th scope="col">写真</th>
                 <th scope="col">商品名称</th>
                 <th scope="col">サブタイトル</th>
-                <th scope="col">値段</th>
-                <th scope="col">割引</th>
+                <th scope="col">原価</th>
+                <th scope="col">今の値段</th>
                 <th scope="col">在庫数</th>
                 <th scope="col">写真管理</th>
                 <th scope="col">属性設定</th>
