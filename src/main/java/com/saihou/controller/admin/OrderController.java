@@ -31,7 +31,7 @@ public class OrderController {
     @RequestMapping(value = {"/index", "/list"})
     public String list(Model model, Integer currentPage) {
         currentPage = currentPage == null ? 1 : currentPage;
-        PageHelper.startPage(currentPage, 8);
+        PageHelper.startPage(currentPage, 5);
         List<Order> orders = orderService.findAll();
         orderItemService.calculateAll(orders);
         PageInfo<Order> pageInfo = new PageInfo<>(orders);

@@ -28,7 +28,7 @@ public class UserController {
     @RequestMapping(value = {"/index", "/list"})
     public String list(Model model, Integer currentPage) {
         currentPage = currentPage == null ? 1 : currentPage;
-        PageHelper.startPage(currentPage, 8);
+        PageHelper.startPage(currentPage, 5);
         List<User> users = userService.findAll();
         PageInfo<User> pageInfo = new PageInfo<>(users);
 

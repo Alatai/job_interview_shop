@@ -1,6 +1,7 @@
 package com.saihou.controller.shop;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.saihou.entity.Product;
 import com.saihou.entity.PropertyValue;
 import com.saihou.entity.Review;
@@ -31,7 +32,7 @@ public class ProductController {
     private ReviewService reviewService;
 
     @RequestMapping("/detail")
-    private String productDetail(Model model, Integer id) {
+    public String productDetail(Model model, Integer id) {
         Product product = productService.productDetail(id);
         List<PropertyValue> propertyValues = propertyValueService.findByPid(id);
         List<Review> reviews = reviewService.findByPid(id);
@@ -45,11 +46,38 @@ public class ProductController {
     }
 
     @RequestMapping("/search")
-    private String search(Model model, String keyword) {
-        PageHelper.offsetPage(0, 20);
+    public String search(Model model, Integer currentPage, String keyword) {
+        currentPage = currentPage == null ? 1 : currentPage;
+        PageHelper.startPage(currentPage, 10);
+
         List<Product> products = productService.getSearchResult(keyword);
+        PageInfo<Product> pageInfo = new PageInfo<>(products);
+
+        String pageParam = "&keyword=" + keyword;
 
         model.addAttribute("products", products);
+        model.addAttribute("title", keyword);
+        model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("pageParam", pageParam);
+
+        return "/shop/product/results";
+    }
+
+    @RequestMapping("/searchByCid")
+    public String searchByCid(Model model, Integer currentPage, Integer cid) {
+        currentPage = currentPage == null ? 1 : currentPage;
+        PageHelper.startPage(currentPage, 5);
+
+        List<Product> products = productService.findByCid(cid);
+        String categoryName = products.get(0).getCategory().getName();
+        PageInfo<Product> pageInfo = new PageInfo<>(products);
+
+        String pageParam = "&cid=" + cid;
+
+        model.addAttribute("products", products);
+        model.addAttribute("title", categoryName);
+        model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("pageParam", pageParam);
 
         return "/shop/product/results";
     }

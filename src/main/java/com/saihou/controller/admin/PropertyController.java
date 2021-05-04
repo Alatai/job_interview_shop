@@ -34,7 +34,7 @@ public class PropertyController {
         Category category = categoryService.findById(cid);
 
         currentPage = currentPage == null ? 1 : currentPage;
-        PageHelper.startPage(currentPage, 8);
+        PageHelper.startPage(currentPage, 5);
 
         List<Property> properties = propertyService.findByCid(cid);
         PageInfo<Property> pageInfo = new PageInfo<>(properties);

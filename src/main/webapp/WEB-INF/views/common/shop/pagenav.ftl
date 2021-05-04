@@ -1,6 +1,6 @@
-<nav aria-label="Page navigation example" style="margin-top: 100px;">
+<nav aria-label="Page navigation example" style="margin: 100px 0 200px;">
     <div class="container">
-        <div class="page-nav">
+        <div class="page-nav" style="width: 200px; margin: 0 auto;">
             <ul class="pagination">
                 <li class="page-item">
                     <a class="page-link" href="?currentPage=${pageInfo.prePage}<#if pageParam??>${pageParam}</#if>"

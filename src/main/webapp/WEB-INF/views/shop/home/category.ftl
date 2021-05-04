@@ -6,16 +6,15 @@
         </div>
 
         <div class="right-menu">
-            <span><a href="#"><i class="fas fa-shopping-cart"></i>スーパー</a></span>
-            <span><a href="#"><i class="fas fa-globe-asia"></i>国際</a></span>
-            <span><a href="#">本</a></span>
-            <span><a href="#">家電</a></span>
-            <span><a href="#">酒</a></span>
-            <span><a href="#">お菓子</a></span>
-            <span><a href="#">服</a></span>
-            <span><a href="#">時計</a></span>
-            <span><a href="#">薬</a></span>
-            <span><a href="#">ゲーム</a></span>
+            <span><a href="javascript:"><i class="fas fa-shopping-cart"></i>スーパー</a></span>
+            <span><a href="javascript:"><i class="fas fa-globe-asia"></i>国際</a></span>
+            <#list categories as category>
+            <span>
+                <a href="product/searchByCid?cid=${category.id}">
+                    ${category.name}
+                </a>
+            </span>
+            </#list>
         </div>
         </div>
     </div>
@@ -47,5 +46,3 @@
         </a>
     </div>
 </div>
-
-<#--<div class="ji-sbck"></div>-->

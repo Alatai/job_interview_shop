@@ -33,4 +33,5 @@
 
 
 
+<#include "../../common/shop/pagenav.ftl">
 <#include "../../common/shop/footer.ftl">

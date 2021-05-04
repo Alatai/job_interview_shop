@@ -34,7 +34,7 @@ public class ProductController {
         Category category = categoryService.findById(cid);
 
         currentPage = currentPage == null ? 1 : currentPage;
-        PageHelper.startPage(currentPage, 8);
+        PageHelper.startPage(currentPage, 5);
 
         List<Product> products = productService.findByCid(cid);
         PageInfo<Product> pageInfo = new PageInfo<>(products);

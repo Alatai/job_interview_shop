@@ -29,7 +29,7 @@ CategoryController {
     @RequestMapping(value = {"/index", "/list"})
     public String list(Model model, Integer currentPage) {
         currentPage = currentPage == null ? 1 : currentPage;
-        PageHelper.startPage(currentPage, 8);
+        PageHelper.startPage(currentPage, 5);
         List<Category> categories = categoryService.findAll();
         PageInfo<Category> pageInfo = new PageInfo<>(categories);
 
