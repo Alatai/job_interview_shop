@@ -140,7 +140,7 @@
 <div class="product-panel">
     <div class="ji-product">
         <div class="pd-img clear-fix">
-            <img style="width: 300px;"
+            <img style="width: 400px;"
                  src="../image/single/<#if product.productImages[0].type =='type_single'>${product.productImages[0].name}</#if>"
                  alt="写真なし">
         </div>
