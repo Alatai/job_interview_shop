@@ -207,6 +207,6 @@ public class OrderController {
     public String deleteOrder(Integer id) {
         orderService.deleteOrder(id);
 
-        return "success";
+        return "redirect:/order/orders";
     }
 }

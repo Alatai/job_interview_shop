@@ -56,7 +56,7 @@
                     <td></td>
                     <td></td>
                     <td class="jio-delete">
-                        <a href="javascript:"><i class="fas fa-trash-alt"></i></a>
+                        <a href="delete?id=${order.id}"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
 
