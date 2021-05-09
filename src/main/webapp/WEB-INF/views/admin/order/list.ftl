@@ -39,7 +39,7 @@
                     <td>${order.statusDesc}</td>
                     <td>￥${order.amount}</td>
                     <td>${order.number} 個</td>
-                    <td>${order.user.name}</td>
+                    <td>${order.receiver}</td>
                     <td>${order.createdDate?string("yyyy-MM-dd HH:mm:ss")}</td>
                     <td><#if order.paidDate??>${order.paidDate?string("yyyy-MM-dd HH:mm:ss")}</#if></td>
                     <td><#if order.deliveredDate??>${order.deliveredDate?string("yyyy-MM-dd HH:mm:ss")}</#if> </td>

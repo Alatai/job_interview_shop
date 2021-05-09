@@ -1,6 +1,5 @@
 package com.saihou.interceptor;
 
-import com.saihou.entity.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.web.servlet.HandlerInterceptor;
