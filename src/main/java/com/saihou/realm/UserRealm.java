@@ -24,11 +24,17 @@ public class UserRealm extends AuthorizingRealm {
     @Autowired
     private UserService userService;
 
+    /**
+     * 権限を与える
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         return new SimpleAuthorizationInfo();
     }
 
+    /**
+     * 検査
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String name = token.getPrincipal().toString();
