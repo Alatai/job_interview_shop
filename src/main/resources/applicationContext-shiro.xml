@@ -18,7 +18,7 @@
     </bean>
 
     <!-- 配置Realm -->
-    <bean id="userRealm" class="com.saihou.realm.UserRealm">
+    <bean id="userRealm" class="com.saihou.jishop.realm.UserRealm">
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
     </bean>
 

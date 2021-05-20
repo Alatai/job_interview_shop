@@ -35,7 +35,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描mapper文件 -->
-        <property name="mapperLocations" value="classpath:com/saihou/mapper/*.xml"/>
+        <property name="mapperLocations" value="classpath:com/saihou/jishop/mapper/*.xml"/>
         <!-- 配置PageHelper -->
         <property name="plugins">
             <array>
@@ -46,7 +46,7 @@
 
     <!-- 配置接口所在的包 -->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.saihou.mapper"/>
+        <property name="basePackage" value="com.saihou.jishop.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
@@ -66,7 +66,7 @@
 
     <!-- 配置AOP增强 -->
     <aop:config>
-        <aop:pointcut id="ptc" expression="execution(* com.saihou.service.impl.*ServiceImpl.*(..))"/>
+        <aop:pointcut id="ptc" expression="execution(* com.saihou.jishop.service.impl.*ServiceImpl.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="ptc"/>
     </aop:config>
 

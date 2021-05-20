@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saihou.jishop.mapper.CategoryMapper">
+
+    <resultMap id="BaseResultMap" type="com.saihou.jishop.entity.Category">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <!-- Property -->
+        <collection property="properties" column="id" ofType="com.saihou.jishop.entity.Property" select="com.saihou.jishop.mapper.PropertyMapper.findByCid">
+        </collection>
+        <!-- Product -->
+        <collection property="products" column="id" ofType="com.saihou.jishop.entity.Product" select="com.saihou.jishop.mapper.ProductMapper.findByCid">
+        </collection>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name
+    </sql>
+
+    <!-- findAll -->
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from Category
+    </select>
+
+    <!-- findById -->
+    <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from Category
+        where id = #{id}
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterType="com.saihou.jishop.entity.Category" useGeneratedKeys="true" keyProperty="id">
+        insert into Category (name)
+        values (#{name})
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterType="com.saihou.jishop.entity.Category">
+        update Category
+        set name = #{name}
+        where id = #{id}
+    </update>
+
+    <!-- delete -->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete
+        from Category
+        where id = #{id}
+    </delete>
+
+</mapper>
